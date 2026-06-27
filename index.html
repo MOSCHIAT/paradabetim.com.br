@@ -28,8 +28,8 @@
             display: flex;
             flex-direction: column;
             font-family: 'Montserrat', sans-serif;
-            background: #1a0a1a;
-            color: #fff;
+            background: linear-gradient(145deg, #f8f4f8, #ede8ed);
+            color: #1a0a1a;
         }
 
         a {
@@ -47,15 +47,17 @@
             padding: 0 1rem;
         }
 
-        /* ===== HEADER FIXO ROSA ===== */
+        /* ===== HEADER - BRANCO/TRANSPARENTE ===== */
         .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: linear-gradient(135deg, #e91e8c, #ff1493, #ff6b9d);
-            box-shadow: 0 4px 30px rgba(233, 30, 140, 0.5);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             padding: 0.6rem 0;
             transition: all 0.3s ease;
         }
@@ -73,22 +75,25 @@
             gap: 0.6rem;
             font-weight: 900;
             font-size: 1.3rem;
-            color: #fff;
+            color: #1a0a1a;
             letter-spacing: -0.5px;
         }
 
         .logo i {
             font-size: 1.8rem;
-            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+            color: #e91e8c;
+            filter: drop-shadow(0 0 8px rgba(233, 30, 140, 0.2));
         }
 
         .logo span {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(233, 30, 140, 0.1);
             padding: 0.1rem 0.6rem;
             border-radius: 30px;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.5px;
+            color: #e91e8c;
+            border: 1px solid rgba(233, 30, 140, 0.15);
         }
 
         /* ---- Navegação ---- */
@@ -100,12 +105,12 @@
         }
 
         .nav a {
-            color: #fff;
+            color: #3a2a3a;
             padding: 0.5rem 1rem;
             border-radius: 30px;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: background 0.25s, transform 0.2s;
+            transition: background 0.25s, transform 0.2s, color 0.2s;
             display: flex;
             align-items: center;
             gap: 0.4rem;
@@ -115,12 +120,14 @@
 
         .nav a:hover,
         .nav a:focus {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(233, 30, 140, 0.08);
+            color: #e91e8c;
             transform: translateY(-2px);
         }
 
         .nav a i {
             font-size: 0.9rem;
+            color: #e91e8c;
         }
 
         /* ---- Dropdown ---- */
@@ -147,14 +154,14 @@
             top: calc(100% + 8px);
             left: 50%;
             transform: translateX(-50%) scale(0.92) translateY(-6px);
-            background: rgba(30, 10, 30, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 20px;
             padding: 0.6rem 0;
             min-width: 220px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
@@ -175,7 +182,7 @@
             align-items: center;
             gap: 0.6rem;
             padding: 0.7rem 1.6rem;
-            color: #f0e6f0;
+            color: #3a2a3a;
             font-weight: 500;
             font-size: 0.9rem;
             border-radius: 0;
@@ -183,26 +190,27 @@
             transform: none;
             white-space: nowrap;
             border-left: 3px solid transparent;
-            transition: background 0.2s, border-color 0.2s;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
 
         .dropdown-menu a:hover {
-            background: rgba(233, 30, 140, 0.25);
-            border-left-color: #ff1493;
+            background: rgba(233, 30, 140, 0.06);
+            border-left-color: #e91e8c;
+            color: #e91e8c;
             transform: none;
         }
 
         .dropdown-menu a i {
             width: 1.2rem;
-            color: #ff6b9d;
+            color: #e91e8c;
         }
 
         /* ---- Menu Mobile Toggle ---- */
         .menu-toggle {
             display: none;
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: #fff;
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            color: #1a0a1a;
             font-size: 1.8rem;
             padding: 0.2rem 0.8rem;
             border-radius: 12px;
@@ -211,10 +219,10 @@
         }
 
         .menu-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(233, 30, 140, 0.08);
         }
 
-        /* ===== HERO COM CONTAGEM - ESTILO GLASSMORPHISM ===== */
+        /* ===== HERO COM CONTAGEM - FUNDO ROSA (SÓ AQUI) ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -227,6 +235,9 @@
             padding: 3rem 1rem;
             padding-top: 80px;
             flex: 1;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
         }
 
         .hero-content {
@@ -254,8 +265,12 @@
         }
 
         @keyframes rainbowMoveTitle {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 300% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 300% 50%;
+            }
         }
 
         .hero-content .data {
@@ -276,7 +291,7 @@
             min-width: 120px;
             padding: 1.2rem;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -338,69 +353,92 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
         }
 
-        /* ===== SEÇÃO CHAMADO COMISSÃO ===== */
-        .chamado-comissao-section {
-            padding: 2.5rem 0 3rem;
-            background: linear-gradient(160deg, #fff5f7, #ffe4ec, #ffd6e0);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        /* ===== SEÇÕES BRANCAS/TRANSPARENTES ===== */
+        .comissao-artistas-section,
+        .atracoes-blog-section,
+        .gallery-section,
+        .trajeto {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            margin: 2rem auto;
+            padding: 2.5rem 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+            max-width: 1240px;
+            width: 96%;
         }
 
-        .chamado-comissao-section .container {
-            max-width: 900px;
+        .comissao-artistas-section .container,
+        .atracoes-blog-section .container,
+        .gallery-section .container,
+        .trajeto .container {
+            width: 100%;
+            padding: 0 1.5rem;
         }
 
+        /* ===== SEÇÃO COMISSÃO + ARTISTAS VOLUNTÁRIOS (LADO A LADO) ===== */
+        .comissao-artistas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .comissao-col,
+        .artistas-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Card da Comissão (esquerda) */
         .chamado-card {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-radius: 32px;
-            padding: 2rem 2.5rem;
-            border: 2px solid rgba(255, 20, 147, 0.2);
-            box-shadow: 0 12px 48px rgba(233, 30, 140, 0.1);
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(233, 30, 140, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 1.8rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            text-align: center;
+            gap: 0.8rem;
             transition: transform 0.3s;
+            width: 100%;
+            max-width: 500px;
         }
 
         .chamado-card:hover {
             transform: translateY(-4px);
+            border-color: rgba(233, 30, 140, 0.2);
         }
 
         .chamado-card .icone-grande {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             color: #e91e8c;
-            filter: drop-shadow(0 0 20px rgba(233, 30, 140, 0.15));
-            flex-shrink: 0;
-        }
-
-        .chamado-card .info {
-            flex: 1;
-            text-align: left;
-            min-width: 200px;
+            filter: drop-shadow(0 0 20px rgba(233, 30, 140, 0.1));
         }
 
         .chamado-card .info .titulo {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 900;
-            color: #7a1a4a;
-            margin-bottom: 0.2rem;
+            color: #1a0a1a;
         }
 
         .chamado-card .info .subtitulo {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: #5a2a3a;
-            margin-bottom: 0.2rem;
+            color: #4a3a4a;
         }
 
         .chamado-card .info .detalhes {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            color: #7a4a5a;
+            color: #6a5a6a;
         }
 
         .chamado-card .info .detalhes i {
@@ -410,263 +448,358 @@
 
         .chamado-card .btn-comissao-section {
             background: linear-gradient(135deg, #e91e8c, #ff1493);
-            padding: 0.7rem 2.2rem;
+            padding: 0.6rem 2rem;
             border-radius: 60px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #fff;
             border: none;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 6px 24px rgba(233, 30, 140, 0.3);
+            box-shadow: 0 6px 24px rgba(233, 30, 140, 0.2);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             text-decoration: none;
-            flex-shrink: 0;
-            white-space: nowrap;
+            display: inline-block;
         }
 
         .chamado-card .btn-comissao-section:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 36px rgba(233, 30, 140, 0.45);
+            box-shadow: 0 10px 36px rgba(233, 30, 140, 0.3);
         }
 
-        /* ===== SEÇÃO ATRAÇÕES ===== */
-        .atracoes {
-            padding: 3rem 0 4rem;
-            background: linear-gradient(160deg, #120a12, #1f0a1f, #160a1a);
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .atracoes .container {
-            max-width: 760px;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-            font-weight: 800;
+        /* Card de Artistas Voluntários (direita) */
+        .artistas-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 32px;
+            padding: 1.5rem 2rem;
+            border: 1px solid rgba(233, 30, 140, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            margin-bottom: 0.3rem;
-            color: #f0e6f0;
-            letter-spacing: -0.5px;
+            transition: transform 0.3s;
+            width: 100%;
+            max-width: 500px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #998899;
+        .artistas-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(233, 30, 140, 0.2);
+        }
+
+        .artistas-card .icone-artistas {
+            font-size: 2.8rem;
+            color: #e91e8c;
+            filter: drop-shadow(0 0 20px rgba(233, 30, 140, 0.1));
+            margin-bottom: 0.5rem;
+        }
+
+        .artistas-card .titulo-card {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #1a0a1a;
+            margin-bottom: 0.4rem;
+        }
+
+        .artistas-card .descricao {
+            color: #4a3a4a;
             font-size: 0.95rem;
-            margin-bottom: 2.2rem;
-            font-weight: 400;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            padding-bottom: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .artistas-card .deadline-box {
+            background: rgba(233, 30, 140, 0.06);
+            border-radius: 16px;
+            padding: 0.8rem 1rem;
+            border-left: 4px solid #e91e8c;
+            margin: 0 0 1.2rem 0;
+            width: 100%;
+        }
+
+        .artistas-card .deadline-box i {
+            color: #e91e8c;
+            margin-right: 0.5rem;
+        }
+
+        .artistas-card .deadline-box strong {
+            color: #1a0a1a;
+        }
+
+        .artistas-card .deadline-box span {
+            color: #e91e8c;
+            font-weight: 800;
+        }
+
+        .artistas-card .btn-artistas {
+            background: linear-gradient(135deg, #e91e8c, #ff1493);
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 24px rgba(233, 30, 140, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .artistas-card .btn-artistas:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 36px rgba(233, 30, 140, 0.3);
+        }
+
+        /* ===== SEÇÃO ATRAÇÕES + BLOG (LADO A LADO) ===== */
+        .atracoes-blog-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .atracoes-col,
+        .blog-col {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .atracoes-col .section-title,
+        .blog-col .section-title {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            margin-bottom: 0.2rem;
+            text-align: left;
+        }
+
+        .atracoes-col .section-subtitle,
+        .blog-col .section-subtitle {
+            text-align: left;
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding-bottom: 0.8rem;
         }
 
         .lista-horarios {
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.3rem;
         }
 
         .item-horario {
             display: flex;
             align-items: center;
-            padding: 0.5rem 0.8rem;
-            border-radius: 12px;
+            padding: 0.3rem 0.5rem;
+            border-radius: 10px;
             transition: background 0.2s;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.02);
         }
 
         .item-horario:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(233, 30, 140, 0.03);
         }
 
         .item-horario .hora {
             font-weight: 700;
-            font-size: 0.9rem;
-            color: #aa88aa;
-            min-width: 70px;
+            font-size: 0.8rem;
+            color: #6a5a6a;
+            min-width: 60px;
             font-variant-numeric: tabular-nums;
             letter-spacing: 0.3px;
             flex-shrink: 0;
         }
 
-        /* ---- BLUR FORTE NO NOME DA ATRAÇÃO, ÍCONES E BADGES ---- */
         .item-horario .atracoes-text {
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
             font-weight: 500;
-            font-size: 0.95rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 40px;
-            filter: blur(20px);
-            -webkit-filter: blur(20px);
-            background: rgba(20, 5, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            user-select: none;
-            pointer-events: none;
-            transition: filter 0.3s;
-        }
-
-        .item-horario:hover .atracoes-text {
-            filter: blur(4px);
+            font-size: 0.85rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 30px;
+            background: rgba(0, 0, 0, 0.01);
+            border: 1px solid rgba(0, 0, 0, 0.02);
+            color: #1a0a1a;
         }
 
         .item-horario .atracoes-text i,
         .item-horario .atracoes-text .badge-atracao {
-            color: #cc99cc;
-            -webkit-text-fill-color: #cc99cc;
+            color: #6a4a6a;
         }
 
         .item-horario .atracoes-text .badge-atracao {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.1rem 0.6rem;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 0.05rem 0.5rem;
             border-radius: 30px;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
             font-weight: 600;
             letter-spacing: 0.3px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             text-transform: uppercase;
         }
 
-        /* ===== SEÇÃO TRAJETO ===== */
-        .trajeto {
-            padding: 3rem 0 4rem;
-            background: linear-gradient(160deg, #0f0515, #1a0a2a, #0f0515);
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        /* Blog dentro da coluna */
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
 
-        .trajeto .container {
-            max-width: 760px;
+        .blog-item {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            padding: 1.2rem 1.2rem;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s, border-color 0.2s;
         }
 
-        .trajeto .section-title i {
-            color: #ff6b9d;
-            margin-right: 0.5rem;
+        .blog-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(233, 30, 140, 0.08);
         }
 
-        .map-wrapper {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 32px;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-            margin-top: 0.5rem;
+        .blog-item .tag {
+            display: inline-block;
+            background: rgba(233, 30, 140, 0.08);
+            color: #e91e8c;
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            border: 1px solid rgba(233, 30, 140, 0.06);
+            margin-bottom: 0.4rem;
         }
 
-        .map-wrapper svg {
+        .blog-item h3 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #1a0a1a;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .blog-item .resumo {
+            color: #4a3a4a;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-item .meta {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.7rem;
+            color: #6a5a6a;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+            padding-top: 0.5rem;
+        }
+
+        .blog-item .meta i {
+            color: #e91e8c;
+            width: 1rem;
+        }
+
+        .blog-item .btn-ler {
+            background: transparent;
+            border: 1px solid rgba(233, 30, 140, 0.12);
+            color: #e91e8c;
+            padding: 0.2rem 1rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.4rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .blog-item .btn-ler:hover {
+            background: rgba(233, 30, 140, 0.06);
+            border-color: #e91e8c;
+            color: #c2185b;
+        }
+
+        /* ===== SEÇÃO GALERIA (8 FOTOS) ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .gallery-item img {
             display: block;
             width: 100%;
-            height: auto;
-            max-height: 460px;
-            border-radius: 20px;
+            height: 200px;
+            object-fit: cover;
         }
 
-        /* Estilos para os elementos dentro do foreignObject do SVG (simulando Tailwind) */
-        .map-wrapper .bg-slate-900\/90 {
-            background: rgba(15, 23, 42, 0.9);
+        .gallery-item .legenda {
+            padding: 0.8rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2a1a2a;
+            background: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
         }
-        .map-wrapper .backdrop-blur-md {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+
+        .gallery-item.featured {
+            grid-column: span 2;
         }
-        .map-wrapper .border-pink-500\/30 {
-            border-color: rgba(236, 72, 153, 0.3);
+        .gallery-item.featured img {
+            height: 420px;
         }
-        .map-wrapper .border-purple-500\/30 {
-            border-color: rgba(168, 85, 247, 0.3);
+
+        /* ===== SEÇÃO TRAJETO (COM GOOGLE MAPS) ===== */
+        .map-wrapper {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 32px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            margin-top: 0.5rem;
+            overflow: hidden;
         }
-        .map-wrapper .p-2\.5 {
-            padding: 0.625rem;
-        }
-        .map-wrapper .rounded-xl {
-            border-radius: 0.75rem;
-        }
-        .map-wrapper .shadow-lg {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .map-wrapper .transition-all-300 {
-            transition: all 0.3s ease;
-        }
-        .map-wrapper .text-\[10px\] {
-            font-size: 10px;
-        }
-        .map-wrapper .font-bold {
-            font-weight: 700;
-        }
-        .map-wrapper .tracking-wider {
-            letter-spacing: 0.05em;
-        }
-        .map-wrapper .text-pink-400 {
-            color: #f472b6;
-        }
-        .map-wrapper .text-purple-400 {
-            color: #a78bfa;
-        }
-        .map-wrapper .uppercase {
-            text-transform: uppercase;
-        }
-        .map-wrapper .flex {
-            display: flex;
-        }
-        .map-wrapper .items-center {
-            align-items: center;
-        }
-        .map-wrapper .gap-1 {
-            gap: 0.25rem;
-        }
-        .map-wrapper .w-1\.5 {
-            width: 0.375rem;
-        }
-        .map-wrapper .h-1\.5 {
-            height: 0.375rem;
-        }
-        .map-wrapper .rounded-full {
-            border-radius: 9999px;
-        }
-        .map-wrapper .text-xs {
-            font-size: 0.75rem;
-        }
-        .map-wrapper .text-white {
-            color: #fff;
-        }
-        .map-wrapper .leading-tight {
-            line-height: 1.25;
-        }
-        .map-wrapper .mt-0\.5 {
-            margin-top: 0.125rem;
-        }
-        .map-wrapper .text-\[9px\] {
-            font-size: 9px;
-        }
-        .map-wrapper .text-slate-400 {
-            color: #94a3b8;
-        }
-        .map-wrapper .bg-slate-900\/90 {
-            background: rgba(15, 23, 42, 0.9);
-        }
-        /* Animação ping para o brilho do trio */
-        .map-wrapper .animate-ping {
-            animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
-        @keyframes ping {
-            75%, 100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-        }
-        /* Hover nos pins */
-        .map-wrapper .cursor-pointer {
-            cursor: pointer;
-        }
-        .map-wrapper .hover\:scale-110:hover {
-            transform: scale(1.1);
-        }
-        .map-wrapper .transition-all {
-            transition: all 0.2s;
+
+        .map-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: 0;
+            border-radius: 20px;
+            transition: height 0.3s ease;
         }
 
         /* ===== RESPONSIVO ===== */
@@ -679,13 +812,13 @@
                 display: none;
                 flex-direction: column;
                 width: 100%;
-                background: rgba(20, 5, 20, 0.98);
+                background: rgba(255, 255, 255, 0.96);
                 backdrop-filter: blur(16px);
                 padding: 1rem 0;
                 border-radius: 20px;
                 margin-top: 0.6rem;
-                border: 1px solid rgba(255, 255, 255, 0.06);
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+                border: 1px solid rgba(0, 0, 0, 0.04);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
                 gap: 0.1rem;
             }
 
@@ -702,8 +835,8 @@
             }
 
             .nav a:hover {
-                background: rgba(233, 30, 140, 0.2);
-                border-left-color: #ff1493;
+                background: rgba(233, 30, 140, 0.04);
+                border-left-color: #e91e8c;
                 transform: none;
             }
 
@@ -718,7 +851,7 @@
             .dropdown-menu {
                 position: static;
                 transform: none;
-                background: rgba(255, 255, 255, 0.04);
+                background: rgba(0, 0, 0, 0.02);
                 backdrop-filter: none;
                 border-radius: 16px;
                 padding: 0.3rem 0;
@@ -745,7 +878,7 @@
 
             .dropdown-menu a:hover {
                 border-left: none;
-                background: rgba(233, 30, 140, 0.15);
+                background: rgba(233, 30, 140, 0.04);
             }
 
             .dropdown>a::after {
@@ -757,39 +890,57 @@
                 padding: 1rem 0.8rem;
             }
 
-            .chamado-card {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.8rem 1.5rem;
-                gap: 1.2rem;
+            .comissao-artistas-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .chamado-card .info {
-                text-align: center;
+            .chamado-card,
+            .artistas-card {
+                max-width: 100%;
+                padding: 1.2rem 1.5rem;
+            }
+            .chamado-card .icone-grande,
+            .artistas-card .icone-artistas {
+                font-size: 2.4rem;
             }
 
-            .chamado-card .btn-comissao-section {
-                white-space: normal;
-                width: 100%;
-                text-align: center;
-                padding: 0.7rem 1.5rem;
+            .atracoes-blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
-            .chamado-card .icone-grande {
-                font-size: 2.8rem;
-            }
-
-            .item-horario .atracoes-text {
-                font-size: 0.85rem;
-                padding: 0.2rem 0.6rem;
-                filter: blur(18px);
-            }
-            .item-horario:hover .atracoes-text {
-                filter: blur(6px);
+            .atracoes-col,
+            .blog-col {
+                padding: 1.2rem 1rem;
             }
 
             .map-wrapper {
                 padding: 0.5rem;
+            }
+            .map-wrapper iframe {
+                height: 300px;
+                border-radius: 16px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+            }
+            .gallery-item.featured img {
+                height: 300px;
+            }
+
+            .comissao-artistas-section,
+            .atracoes-blog-section,
+            .gallery-section,
+            .trajeto {
+                padding: 1.5rem 0;
+                margin: 1rem auto;
+                border-radius: 28px;
             }
         }
 
@@ -808,41 +959,71 @@
             .hero-content h1 {
                 font-size: clamp(2rem, 6vw, 3rem);
             }
-            .chamado-card {
-                padding: 1.2rem 1rem;
+            .chamado-card,
+            .artistas-card {
+                padding: 1rem 1rem;
             }
-            .chamado-card .info .titulo {
-                font-size: 1.2rem;
+            .chamado-card .info .titulo,
+            .artistas-card .titulo-card {
+                font-size: 1.1rem;
             }
             .chamado-card .info .subtitulo {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             .chamado-card .info .detalhes {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
-            .chamado-card .icone-grande {
-                font-size: 2.2rem;
+            .chamado-card .icone-grande,
+            .artistas-card .icone-artistas {
+                font-size: 2rem;
+            }
+            .artistas-card .descricao {
+                font-size: 0.85rem;
             }
             .btn-hero {
                 font-size: 0.95rem;
                 padding: 0.7rem 1.8rem;
             }
+
             .item-horario {
                 flex-wrap: wrap;
-                gap: 0.3rem;
+                gap: 0.2rem;
             }
             .item-horario .hora {
-                min-width: 60px;
-                font-size: 0.8rem;
+                min-width: 50px;
+                font-size: 0.75rem;
             }
             .item-horario .atracoes-text {
-                font-size: 0.8rem;
-                padding: 0.15rem 0.6rem;
-                gap: 0.3rem;
-                filter: blur(16px);
+                font-size: 0.75rem;
+                padding: 0.1rem 0.4rem;
             }
-            .item-horario:hover .atracoes-text {
-                filter: blur(5px);
+
+            .blog-item {
+                padding: 0.8rem 0.8rem;
+            }
+            .blog-item h3 {
+                font-size: 0.9rem;
+            }
+            .blog-item .resumo {
+                font-size: 0.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+            }
+            .gallery-item.featured img {
+                height: 200px;
+            }
+            .gallery-item img {
+                height: 140px;
+            }
+
+            .map-wrapper iframe {
+                height: 250px;
             }
         }
 
@@ -863,16 +1044,38 @@
             .logo i {
                 font-size: 1.4rem;
             }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.6rem;
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+            }
+            .gallery-item.featured img {
+                height: 180px;
+            }
+            .gallery-item img {
+                height: 120px;
+            }
+            .map-wrapper iframe {
+                height: 200px;
+            }
         }
 
         /* ===== FOOTER ===== */
         .footer {
-            background: rgba(10, 0, 10, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(8px);
             padding: 2rem 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
             text-align: center;
             margin-top: auto;
+            border-radius: 40px 40px 0 0;
+            max-width: 1240px;
+            width: 96%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .footer .container {
@@ -896,28 +1099,28 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
-            color: #ffb3d9;
+            background: rgba(0, 0, 0, 0.02);
+            color: #6a5a6a;
             font-size: 1.3rem;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
         .footer-social a:hover {
-            background: rgba(233, 30, 140, 0.3);
+            background: rgba(233, 30, 140, 0.06);
             transform: translateY(-4px);
-            border-color: #ff1493;
-            color: #fff;
+            border-color: #e91e8c;
+            color: #e91e8c;
         }
 
         .footer p {
             font-size: 0.85rem;
-            color: #aa8aaa;
+            color: #4a3a4a;
             font-weight: 400;
         }
 
         .footer p i {
-            color: #ff1493;
+            color: #e91e8c;
             margin: 0 0.3rem;
         }
 
@@ -926,7 +1129,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(8px);
             z-index: 2000;
             justify-content: center;
@@ -939,13 +1142,14 @@
         }
 
         .modal-login {
-            background: #1f0a1f;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 32px;
             padding: 2.5rem 2rem;
             max-width: 420px;
             width: 100%;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.08);
             position: relative;
         }
 
@@ -955,25 +1159,25 @@
             right: 1.2rem;
             background: none;
             border: none;
-            color: #998899;
+            color: #6a5a6a;
             font-size: 1.6rem;
             cursor: pointer;
             transition: color 0.2s;
         }
 
         .modal-login .close-modal:hover {
-            color: #fff;
+            color: #1a0a1a;
         }
 
         .modal-login h2 {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #fff;
+            color: #1a0a1a;
             margin-bottom: 0.2rem;
         }
 
         .modal-login p {
-            color: #998899;
+            color: #5a4a5a;
             font-size: 0.95rem;
             margin-bottom: 1.8rem;
         }
@@ -986,7 +1190,7 @@
             display: block;
             font-weight: 600;
             font-size: 0.85rem;
-            color: #ccb3cc;
+            color: #3a2a3a;
             margin-bottom: 0.3rem;
         }
 
@@ -994,9 +1198,9 @@
             width: 100%;
             padding: 0.8rem 1rem;
             border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.04);
-            color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: rgba(0, 0, 0, 0.02);
+            color: #1a0a1a;
             font-size: 1rem;
             font-family: 'Montserrat', sans-serif;
             transition: border-color 0.2s;
@@ -1004,7 +1208,7 @@
 
         .modal-login input:focus {
             outline: none;
-            border-color: #ff1493;
+            border-color: #e91e8c;
         }
 
         .modal-login .btn-login {
@@ -1018,16 +1222,16 @@
             font-size: 1rem;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 8px 24px rgba(233, 30, 140, 0.3);
+            box-shadow: 0 8px 24px rgba(233, 30, 140, 0.15);
         }
 
         .modal-login .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(233, 30, 140, 0.5);
+            box-shadow: 0 12px 32px rgba(233, 30, 140, 0.25);
         }
 
         .modal-login .erro-login {
-            color: #ff6b6b;
+            color: #dc3545;
             font-size: 0.85rem;
             margin-top: 0.8rem;
             display: none;
@@ -1037,7 +1241,6 @@
             display: block;
         }
 
-        /* ===== PAINEL DA COMISSÃO ===== */
         .painel-comissao {
             display: none;
             margin-top: 2rem;
@@ -1052,13 +1255,13 @@
             align-items: center;
             justify-content: space-between;
             padding: 0.8rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
             transition: background 0.2s;
             border-radius: 10px;
         }
 
         .painel-comissao .arquivo-item:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(0, 0, 0, 0.02);
         }
 
         .painel-comissao .arquivo-item .info {
@@ -1068,7 +1271,7 @@
         }
 
         .painel-comissao .arquivo-item .info i {
-            color: #ff6b9d;
+            color: #e91e8c;
             font-size: 1.3rem;
             width: 1.8rem;
             text-align: center;
@@ -1076,19 +1279,19 @@
 
         .painel-comissao .arquivo-item .info span {
             font-weight: 500;
-            color: #e0d0e0;
+            color: #1a0a1a;
         }
 
         .painel-comissao .arquivo-item .info small {
-            color: #886688;
+            color: #6a5a6a;
             font-size: 0.75rem;
             margin-left: 0.5rem;
         }
 
         .painel-comissao .arquivo-item .btn-download {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #ffb3d9;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            color: #4a3a4a;
             padding: 0.3rem 1rem;
             border-radius: 30px;
             font-size: 0.75rem;
@@ -1101,16 +1304,16 @@
         }
 
         .painel-comissao .arquivo-item .btn-download:hover {
-            background: rgba(233, 30, 140, 0.2);
-            border-color: #ff1493;
-            color: #fff;
+            background: rgba(233, 30, 140, 0.06);
+            border-color: #e91e8c;
+            color: #e91e8c;
         }
 
         .painel-comissao .logout-btn {
             margin-top: 2rem;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            color: #998899;
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            color: #5a4a5a;
             padding: 0.6rem 1.6rem;
             border-radius: 60px;
             font-weight: 600;
@@ -1121,15 +1324,15 @@
         }
 
         .painel-comissao .logout-btn:hover {
-            background: rgba(233, 30, 140, 0.15);
-            color: #fff;
-            border-color: #ff1493;
+            background: rgba(233, 30, 140, 0.04);
+            color: #e91e8c;
+            border-color: #e91e8c;
         }
     </style>
 </head>
 
 <body>
-    <!-- ===== HEADER FIXO ===== -->
+    <!-- ===== HEADER ===== -->
     <header class="header" id="header">
         <div class="container">
             <a href="index.html" class="logo">
@@ -1168,7 +1371,7 @@
         </div>
     </header>
 
-    <!-- ===== HERO COM CONTAGEM - ESTILO GLASSMORPHISM ===== -->
+    <!-- ===== HERO COM CONTAGEM - FUNDO ROSA ===== -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1>22ª Parada do Orgulho <span class="rainbow-text">LGBTQIAPN+</span></h1>
@@ -1206,111 +1409,225 @@
         </div>
     </section>
 
-    <!-- ===== SEÇÃO CHAMADO COMISSÃO ===== -->
-    <section class="chamado-comissao-section" id="chamado-comissao">
+    <!-- ===== SEÇÃO COMISSÃO + ARTISTAS VOLUNTÁRIOS (LADO A LADO) ===== -->
+    <section class="comissao-artistas-section" id="comissao-artistas">
         <div class="container">
-            <div class="chamado-card">
-                <div class="icone-grande">
-                    <i class="fas fa-users-cog"></i>
-                </div>
-                <div class="info">
-                    <div class="titulo">Participe da Comissão Organizadora</div>
-                    <div class="subtitulo">Reuniões abertas a todas as pessoas</div>
-                    <div class="detalhes">
-                        <i class="fas fa-calendar-alt"></i> Todas as quartas · 15h
-                        <i class="fas fa-map-pin" style="margin-left:0.8rem;"></i> Prefeitura de Betim
+            <div class="comissao-artistas-grid">
+                <!-- Coluna da Comissão -->
+                <div class="comissao-col">
+                    <div class="chamado-card">
+                        <div class="icone-grande">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="info">
+                            <div class="titulo">Participe da Comissão Organizadora</div>
+                            <div class="subtitulo">Reuniões abertas a todas as pessoas</div>
+                            <div class="detalhes">
+                                <i class="fas fa-calendar-alt"></i> Todas as quartas · 15h
+                                <i class="fas fa-map-pin" style="margin-left:0.8rem;"></i> Prefeitura de Betim
+                            </div>
+                        </div>
+                        <a href="voluntarios.html" class="btn-comissao-section">
+                            <i class="fas fa-hand-peace"></i> Quero participar
+                        </a>
                     </div>
                 </div>
-                <a href="voluntarios.html" class="btn-comissao-section">
-                    <i class="fas fa-hand-peace"></i> Quero participar
-                </a>
+
+                <!-- Coluna do Chamado para Artistas Voluntários -->
+                <div class="artistas-col">
+                    <div class="artistas-card">
+                        <div class="icone-artistas">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <h3 class="titulo-card">Chamada para Artistas Voluntários</h3>
+                        <p class="descricao">
+                            Quer fazer parte da maior festa da diversidade? Estamos selecionando artistas, músicos, drag queens, DJs e performers para compor a programação da 22ª Parada do Orgulho LGBTQIAPN+!
+                        </p>
+                        <div class="deadline-box">
+                            <i class="fas fa-calendar-alt"></i>
+                            <strong>Inscrições abertas até <span>17 de julho</span></strong>
+                        </div>
+                        <a href="#" class="btn-artistas">
+                            <i class="fas fa-pen"></i> Inscreva-se agora
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== SEÇÃO ATRAÇÕES PRINCIPAL ===== -->
-    <section class="atracoes" id="atracoes">
+    <!-- ===== SEÇÃO ATRAÇÕES + BLOG (LADO A LADO) ===== -->
+    <section class="atracoes-blog-section" id="atracoes-blog">
         <div class="container">
-            <h2 class="section-title">Programação de Atrações</h2>
-            <p class="section-subtitle">26 de julho · concentração às 12h · Poli esportivo Betim</p>
+            <div class="atracoes-blog-grid">
+                <!-- Coluna de Atrações -->
+                <div class="atracoes-col">
+                    <h2 class="section-title"><i class="fas fa-music"></i> Programação</h2>
+                    <p class="section-subtitle">26 de julho · Poli esportivo Betim</p>
 
-            <div class="lista-horarios">
-                <div class="item-horario">
-                    <span class="hora">12:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-flag-checkered"></i> Concentração – Poli esportivo Betim
-                        <span class="badge-atracao">Início</span>
-                    </span>
+                    <div class="lista-horarios">
+                        <div class="item-horario">
+                            <span class="hora">12:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-flag-checkered"></i> Concentração
+                                <span class="badge-atracao">Início</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">13:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-microphone-alt"></i> DJ Luna
+                                <span class="badge-atracao">Eletrônica</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">14:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-guitar"></i> Banda Rainbow
+                                <span class="badge-atracao">Rock</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">15:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-mask"></i> Drag Queens
+                                <span class="badge-atracao">Arte</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">16:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-drum"></i> Bateria Diversidade
+                                <span class="badge-atracao">Samba</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">17:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-users"></i> Bloco Afro
+                                <span class="badge-atracao">Música</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">18:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-headphones"></i> DJ Madam P.
+                                <span class="badge-atracao">Pop</span>
+                            </span>
+                        </div>
+                        <div class="item-horario" style="background:rgba(233,30,140,0.04); border-left:3px solid #e91e8c;">
+                            <span class="hora">19:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-music"></i> Banda Praça Encontro
+                                <span class="badge-atracao" style="background:rgba(233,30,140,0.08); color:#e91e8c;">Destaque</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">20:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-fire"></i> Fogo &amp; Luzes
+                                <span class="badge-atracao">Efeitos</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">21:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-music"></i> Orquestra Pride
+                                <span class="badge-atracao">Clássica</span>
+                            </span>
+                        </div>
+                        <div class="item-horario">
+                            <span class="hora">22:00</span>
+                            <span class="atracoes-text">
+                                <i class="fas fa-glass-cheers"></i> After DJ Fênix
+                                <span class="badge-atracao">Festa</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">13:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-microphone-alt"></i> Abertura com DJ Luna
-                        <span class="badge-atracao">Eletrônica</span>
-                    </span>
+
+                <!-- Coluna do Blog -->
+                <div class="blog-col">
+                    <h2 class="section-title"><i class="fas fa-newspaper"></i> Blog</h2>
+                    <p class="section-subtitle">Novidades da comunidade LGBTQIAPN+</p>
+
+                    <div class="blog-list">
+                        <article class="blog-item">
+                            <span class="tag">Política</span>
+                            <h3>Projeto que criminaliza LGBTfobia avança</h3>
+                            <p class="resumo">Projeto aprovado na Câmara segue para o Senado. Ativistas comemoram.</p>
+                            <div class="meta">
+                                <i class="fas fa-calendar-alt"></i> 24/06/2026
+                                <i class="fas fa-user"></i> Redação
+                            </div>
+                            <button class="btn-ler" onclick="alert('Notícia completa em breve!')">Ler mais</button>
+                        </article>
+
+                        <article class="blog-item">
+                            <span class="tag">Cultura</span>
+                            <h3>Artistas LGBTQIAPN+ no Rock in Rio</h3>
+                            <p class="resumo">Mais de 60% dos artistas confirmados são da comunidade.</p>
+                            <div class="meta">
+                                <i class="fas fa-calendar-alt"></i> 20/06/2026
+                                <i class="fas fa-user"></i> Redação
+                            </div>
+                            <button class="btn-ler" onclick="alert('Notícia completa em breve!')">Ler mais</button>
+                        </article>
+
+                        <article class="blog-item">
+                            <span class="tag">Educação</span>
+                            <h3>Escolas de Betim adotam currículo inclusivo</h3>
+                            <p class="resumo">Rede pública terá disciplinas sobre diversidade sexual e de gênero.</p>
+                            <div class="meta">
+                                <i class="fas fa-calendar-alt"></i> 18/06/2026
+                                <i class="fas fa-user"></i> Redação
+                            </div>
+                            <button class="btn-ler" onclick="alert('Notícia completa em breve!')">Ler mais</button>
+                        </article>
+                    </div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">14:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-guitar"></i> Banda Rainbow
-                        <span class="badge-atracao">Rock</span>
-                    </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SEÇÃO GALERIA ===== -->
+    <section class="gallery-section" id="galeria">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-images"></i> Galeria – Orgulho 2024</h2>
+            <p class="section-subtitle">Reviva os melhores momentos da edição passada</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item featured">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc-bLPncqspeMs1jIX9BfyXhYk7QIdC-uMUUh4vfqYGnejYfcWEF76oE-y8zp-Ei_CjGVr_01UOxvizhdFWSX76-GiWBCvp7oWwwWd08Z15fxjs2DMxQlv0YeTl2iAzgXW5ratz7vTc0SMDsia3Um1DZo-JYmNSAcygE4MT60RNvUhxIvvrAtfgKESd2Hz/s1600/1.jpg" alt="Orgulho 2024 - Capa" />
+                    <div class="legenda">✨ Capa do álbum – Orgulho 2024</div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">15:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-mask"></i> Performance Drag Queens
-                        <span class="badge-atracao">Arte</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEBR6AlgOVNSfZR8gllgvSv3PgTmFFUT1ig5zOFmXj_VMFXnYoRAJyHs2KqGqm4_md-8169LSGSPOeuG4cm97mNjlWQsgZjtnX4qGster7758ibNercfcZMUUMv_krt8I1Ep-XvD95BEFlfTBoLc62x2J50YTd4BLapU74ic9-cQj_49178QeY82YByLRd/s1600/44.jpg" alt="Orgulho 2024 - Foto 5" />
+                    <div class="legenda">Alegria</div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">16:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-drum"></i> Bateria da Diversidade
-                        <span class="badge-atracao">Samba</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSVWLnj-lN7cKfwIn23HcwdrcVTUi9On8EZdpwCvS11L8iFARFj9Rx95sQLX0nZwBjG9insXe2c_8XLhhEWJUJMGRNoYaR8Huc9hUsrZHHAalGmFKWnY0CenQx0dhDAfpxxqBoLC_ezNGKp03VtkHtGzAA7cckLWehxc433OIQ17m8Uuks-Bo6YaAUYxoP/s1600/33.jpg" alt="Orgulho 2024 - Foto 6" />
+                    <div class="legenda">Público</div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">17:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-users"></i> Bloco Afro LGBTQIAPN+
-                        <span class="badge-atracao">Música</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHqQbIgA4B9SUmB9QVD_kIJBU0FOVLEIgvjce8uCze_8R6dNrisSbcfweql88Nz2nE4RalFen0WJeIjDGluOjMYhBLBKrF_kpRHpiFDUglAxNgZDV0DtWx04ljXjjuQv9iRjMUqx47CA_bVzT9hNZtApi67Wdno9OphCaStseyPHgrn9D2t4lB8iSGUXQb/s1600/22.jpg" alt="Orgulho 2024 - Foto 7" />
+                    <div class="legenda">Trio Elétrico</div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">18:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-headphones"></i> DJ Set – Madam P.
-                        <span class="badge-atracao">Pop</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_4phh5ixX0oGle3h01lNbYUawbTwtw8G8U_36UHJnqx_Ifi4fJjNxAAyCd5TkrQrjTAtSTbYpbU37UASPadz8rRW6g5SwfTkqd14pmsdlNFLW9KYxNBienL4DcvuZRIWGS7K2zdn1yPmQ6D23yiXg2BxlfqrioljDzcEeCg4yYWc09vjisi1Yb9SBW6cy/s1600/11.jpg" alt="Orgulho 2024 - Foto 8" />
+                    <div class="legenda">Diversidade</div>
                 </div>
-                <div class="item-horario" style="background:rgba(255,20,147,0.05); border-left:3px solid #ff1493;">
-                    <span class="hora">19:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-music"></i> Banda na Praça do Encontro
-                        <span class="badge-atracao" style="background:rgba(233,30,140,0.2); color:#ffb3d9;">Destaque</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIH0RzehFgJ4j-Q7V5sqhuvL_GEF_X-fXGZ-mfbLRuxHCp7SdQivEChLEIhS_MaCAvREasBJlQmCipixZEQcuMBBfoiTyxaXVeFxwcxRRbmkKtI1MTshQ3zZ6JSg9ZuHw7jAU613V_UMU1jjx8GFFbVls3WAj876rvwV5P8tG3W0uvj3h7TKkoD7FXSF7L/s1600/2.jpg" alt="Orgulho 2024 - Foto 2" />
+                    <div class="legenda">Banda</div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">20:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-fire"></i> Show de Fogo e Luzes
-                        <span class="badge-atracao">Efeitos</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVinOhw_CyMxo-TevR-2Oq9ywmIYVo3aHlM1v0OWeuVwNwTyGMB3UFmUflsTYv-QSAzp82j6hE-CXSq6nl9BtCi0rCWQqFfoBK_66fceGG1m1hnnIT1mzpy9KtUdlVmYqqXgZYe_2pXqp9iT6vbfpphKMzHDMrlxSZ2ouHweXco509AVXbFWpD1cUWvO52/s1600/3.jpg" alt="Orgulho 2024 - Foto 3" />
+                    <div class="legenda">Dança</div>
                 </div>
-                <div class="item-horario">
-                    <span class="hora">21:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-music"></i> Encerramento com Orquestra Pride
-                        <span class="badge-atracao">Clássica</span>
-                    </span>
-                </div>
-                <div class="item-horario">
-                    <span class="hora">22:00</span>
-                    <span class="atracoes-text">
-                        <i class="fas fa-glass-cheers"></i> After Party – DJ Fênix
-                        <span class="badge-atracao">Festa</span>
-                    </span>
+                <div class="gallery-item">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyemHIxpjVoydEI0fb81EGz_PLHCLF8ioCqcCGWZfi5N12Xw1skTGvsstCfkZ6pRgiilNYDivmnEkd6ZYltp84nOBprKgbvghtom0ln4aehrRyG359wC0339Ouu5C__d5vxueyF_9pas_YOwHILoHtAXvgkoNa0-ZyhyphenhyphenGS516GPodCt9Xxq_j98kfhke7t/s1600/4.jpg" alt="Orgulho 2024 - Foto 4" />
+                    <div class="legenda">Show</div>
                 </div>
             </div>
         </div>
@@ -1319,140 +1636,18 @@
     <!-- ===== SEÇÃO TRAJETO ===== -->
     <section class="trajeto" id="trajeto">
         <div class="container">
-            <h2 class="section-title"><i class="fas fa-route"></i> Trajeto da Parada</h2>
+            <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Trajeto da Parada</h2>
             <p class="section-subtitle" style="border-bottom: none; padding-bottom: 0;">
-                Acompanhe o percurso do trio elétrico e dos blocos – concentração no Poliesportivo até a Praça do Encontro.
+                Concentração no Poliesportivo até a Praça do Encontro.
             </p>
 
             <div class="map-wrapper">
-                <svg viewBox="0 0 500 850" fill="none" xmlns="http://www.w3.org/2000/svg" id="map-svg">
-                    <defs>
-                        <!-- Gradiente Arco-Íris que segue o trajeto principal do Orgulho de forma elegante -->
-                        <linearGradient id="rainbow-route" x1="400" y1="50" x2="100" y2="800" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#E40303"/>    <!-- Vermelho -->
-                            <stop offset="20%" stop-color="#FF8C00"/>   <!-- Laranja -->
-                            <stop offset="40%" stop-color="#FFED00"/>   <!-- Amarelo -->
-                            <stop offset="60%" stop-color="#008026"/>   <!-- Verde -->
-                            <stop offset="80%" stop-color="#004CFF"/>   <!-- Azul -->
-                            <stop offset="100%" stop-color="#732982"/>  <!-- Roxo -->
-                        </linearGradient>
-
-                        <!-- Filtros de Brilho Neon Profissional -->
-                        <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur stdDeviation="12" result="blur"/>
-                            <feMerge>
-                                <feMergeNode in="blur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-                        <filter id="neon-glow-subtle" x="-10%" y="-10%" width="120%" height="120%">
-                            <feGaussianBlur stdDeviation="5" result="blur"/>
-                            <feMerge>
-                                <feMergeNode in="blur"/>
-                                <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                        </filter>
-
-                        <!-- Gradientes dos Pins -->
-                        <linearGradient id="pin-grad-red" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#FF5252"/>
-                            <stop offset="100%" stop-color="#C62828"/>
-                        </linearGradient>
-                        <linearGradient id="pin-grad-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#E040FB"/>
-                            <stop offset="100%" stop-color="#6A1B9A"/>
-                        </linearGradient>
-                    </defs>
-
-                    <!-- TRÁFEGO DO TRAJETO -->
-                    <g id="route-group">
-                        <!-- Sombra suave -->
-                        <path d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="#000" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
-                        <!-- Glow Neon -->
-                        <path id="route-glow" d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="url(#rainbow-route)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" filter="url(#neon-glow)"/>
-                        <!-- Linha Principal -->
-                        <path id="main-route-line" d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="url(#rainbow-route)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-                        <!-- Linha Pontilhada Branca -->
-                        <path d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10, 14" opacity="0.8"/>
-                    </g>
-
-                    <!-- TRIO ELÉTRICO ANIMADO -->
-                    <g id="animated-trio">
-                        <path id="animation-path" d="M 275,275 L 360,75 C 367,55 395,65 390,90 L 320,290 C 285,390 235,460 180,530 C 130,595 105,650 115,705 C 125,750 155,770 180,770" fill="none"/>
-                        <g id="truck-group">
-                            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto">
-                                <mpath href="#animation-path"/>
-                            </animateMotion>
-                            <!-- Sombra -->
-                            <rect x="-14" y="-7" width="28" height="14" rx="3" fill="#000" opacity="0.3"/>
-                            <!-- Corpo -->
-                            <rect x="-12" y="-6" width="24" height="12" rx="2" fill="#E40303" id="trio-body"/>
-                            <rect x="-2" y="-5" width="13" height="10" rx="1" fill="#FFED00"/>
-                            <!-- Cabine -->
-                            <rect x="8" y="-4" width="5" height="8" rx="1" fill="#1E293B"/>
-                            <!-- Alto-falantes -->
-                            <circle cx="-6" cy="-2" r="2.5" fill="#111827"/>
-                            <circle cx="-6" cy="2" r="2.5" fill="#111827"/>
-                            <circle cx="2" cy="-2" r="2.5" fill="#111827"/>
-                            <circle cx="2" cy="2" r="2.5" fill="#111827"/>
-                            <!-- Bandeira -->
-                            <path d="M -8,0 L -14,-4 L -11,-1 L -14,2 Z" fill="#732982"/>
-                            <!-- Brilho -->
-                            <circle cx="0" cy="0" r="15" stroke="#FFF" stroke-width="1.5" opacity="0.4" class="animate-ping" style="animation-duration: 2s;"/>
-                        </g>
-                    </g>
-
-                    <!-- MARCADORES (PINS) -->
-                    <!-- Pin Poliesportivo -->
-                    <g transform="translate(245, 265)" class="cursor-pointer transition-all hover:scale-110" id="pin-poliesportivo">
-                        <g filter="url(#neon-glow-subtle)">
-                            <path d="M 0,0 C -12,-12 -16,-24 -16,-34 C -16,-45 -7,-52 4,-52 C 15,-52 24,-45 24,-34 C 24,-24 20,-12 8,0 L 4,4 Z" fill="url(#pin-grad-red)"/>
-                            <circle cx="4" cy="-34" r="10" fill="#FFF"/>
-                            <path d="M 1,-37 L 7,-37 L 9,-34 L 9,-32 L 7,-29 L 1,-29 Z" fill="#E40303"/>
-                            <circle cx="2" cy="-31" r="1.5" fill="#E40303"/>
-                        </g>
-                        <ellipse cx="4" cy="2" rx="8" ry="3" fill="#000" opacity="0.3"/>
-                    </g>
-
-                    <!-- Pin Praça do Encontro -->
-                    <g transform="translate(190, 755)" class="cursor-pointer transition-all hover:scale-110" id="pin-encontro">
-                        <g filter="url(#neon-glow-subtle)">
-                            <path d="M 0,-5 C -12,-17 -16,-29 -16,-39 C -16,-50 -7,-57 4,-57 C 15,-57 24,-50 24,-39 C 24,-29 20,-17 8,-5 L 4,-1 Z" fill="url(#pin-grad-purple)"/>
-                            <circle cx="4" cy="-39" r="10" fill="#FFF"/>
-                            <path d="M 4,-45 L 6,-41 L 10,-40 L 7,-37 L 8,-33 L 4,-35 L 0,-33 L 1,-37 L -2,-40 L 2,-41 Z" fill="#732982"/>
-                        </g>
-                        <ellipse cx="4" cy="-1" rx="8" ry="3" fill="#000" opacity="0.3"/>
-                    </g>
-
-                    <!-- LABELS (CAIXAS DE TEXTO) -->
-                    <foreignObject x="20" y="240" width="190" height="75" id="label-poliesportivo-container">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="bg-slate-900/90 backdrop-blur-md border border-pink-500/30 p-2.5 rounded-xl shadow-lg transition-all-300">
-                            <p class="text-[10px] font-bold tracking-wider text-pink-400 uppercase flex items-center gap-1">
-                                <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span> Concentração
-                            </p>
-                            <p class="text-xs font-bold text-white leading-tight mt-0.5">Poliesportivo</p>
-                            <p class="text-[9px] text-slate-400 mt-0.5">Início do desfile, trios e ativações</p>
-                        </div>
-                    </foreignObject>
-
-                    <foreignObject x="210" y="730" width="220" height="75" id="label-encontro-container">
-                        <div xmlns="http://www.w3.org/1999/xhtml" class="bg-slate-900/90 backdrop-blur-md border border-purple-500/30 p-2.5 rounded-xl shadow-lg transition-all-300">
-                            <p class="text-[10px] font-bold tracking-wider text-purple-400 uppercase flex items-center gap-1">
-                                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span> Dispersão &amp; Show
-                            </p>
-                            <p class="text-xs font-bold text-white leading-tight mt-0.5">Praça do Encontro</p>
-                            <p class="text-[9px] text-slate-400 mt-0.5">Palco principal e encerramento</p>
-                        </div>
-                    </foreignObject>
-
-                    <!-- SETAS DE FLUXO -->
-                    <g transform="translate(355, 200) rotate(-65)" opacity="0.7">
-                        <path d="M 0,0 L 10,-5 L 10,-2 L 25,-2 L 25,2 L 10,2 L 10,5 Z" fill="#FFF"/>
-                    </g>
-                    <g transform="translate(145, 620) rotate(120)" opacity="0.7">
-                        <path d="M 0,0 L 10,-5 L 10,-2 L 25,-2 L 25,2 L 10,2 L 10,5 Z" fill="#FFF"/>
-                    </g>
-                </svg>
+                <iframe 
+                    src="https://www.google.com/maps?q=R.+Redelvim+Andrade,+300+-+Horto,+Betim+-+MG,+32604-142&output=embed" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
@@ -1470,7 +1665,7 @@
             <p>
                 <i class="fas fa-rainbow"></i> 22ª Parada do Orgulho LGBTQIAPN+ · Betim, 26 de Julho de 2026
                 <br />
-                <span style="font-size:0.8rem; color:#886688;">
+                <span style="font-size:0.8rem; color:#6a5a6a;">
                     &copy; 2026 · Orgulho, diversidade e resistência
                 </span>
             </p>
@@ -1494,15 +1689,15 @@
                 </div>
                 <button class="btn-login" id="btnLogin">Entrar</button>
                 <div class="erro-login" id="erroLogin">Usuário ou senha inválidos.</div>
-                <div style="margin-top:1rem; font-size:0.75rem; color:#665566; text-align:center;">
+                <div style="margin-top:1rem; font-size:0.75rem; color:#6a5a6a; text-align:center;">
                     Credenciais: comissao / parada2026
                 </div>
             </div>
             <div class="painel-comissao" id="painelComissao">
-                <h3 style="color:#fff; font-size:1.2rem; margin-bottom:0.2rem;">
+                <h3 style="color:#1a0a1a; font-size:1.2rem; margin-bottom:0.2rem;">
                     <i class="fas fa-folder-open"></i> Arquivos da Comissão
                 </h3>
-                <p style="color:#998899; font-size:0.85rem; margin-bottom:1.2rem;">
+                <p style="color:#5a4a5a; font-size:0.85rem; margin-bottom:1.2rem;">
                     Documentos internos e relatórios
                 </p>
                 <div class="arquivo-item">
