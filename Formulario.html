@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscrição – 22ª Parada do Orgulho LGBTQIAPN+</title>
+
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* Reset base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0c0a0c;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Fundo com gradiente animado */
+        .bg-animated {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(-45deg, #1a0a1a, #2d0a2d, #4a0a3a, #1a0a1a);
+            background-size: 400% 400%;
+            animation: gradientBG 18s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Glassmorphism base */
+        .glass {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 48px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-light {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Rainbow glow text */
+        .rainbow-glow {
+            background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00cc44, #0088ff, #6633cc, #ff00aa, #ff0000);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowMove 6s linear infinite;
+        }
+
+        @keyframes rainbowMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 300% 50%;
+            }
+        }
+
+        /* Inputs e selects com glass */
+        .input-glass {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #f0e6f0;
+            border-radius: 16px;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .input-glass:focus {
+            outline: none;
+            border-color: #ff1493;
+            box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.15);
+        }
+
+        .input-glass::placeholder {
+            color: #887888;
+        }
+
+        .input-glass option {
+            background: #1a0a1a;
+            color: #f0e6f0;
+        }
+
+        /* Label */
+        .label-glass {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #c0b0c0;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Botões com gradiente */
+        .btn-gradient {
+            background: linear-gradient(135deg, #ff1493, #e91e8c);
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 30px rgba(233, 30, 140, 0.25);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 40px rgba(233, 30, 140, 0.4);
+        }
+
+        .btn-outline-glass {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.7rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #c0b0c0;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-outline-glass:hover {
+            background: rgba(255, 20, 147, 0.08);
+            border-color: #ff1493;
+            color: #fff;
+        }
+
+        .btn-outline-glass.active {
+            background: rgba(255, 20, 147, 0.15);
+            border-color: #ff1493;
+            color: #fff;
+        }
+
+        /* Barra de progresso */
+        .progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #ff1493, #ff6b9d, #ff1493);
+            background-size: 200% 100%;
+            border-radius: 4px;
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: shimmerProgress 2s linear infinite;
+        }
+
+        @keyframes shimmerProgress {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Tabs de seleção */
+        .tab-selector {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.3rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.6rem 0.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            color: #887888;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .tab-btn.active {
+            background: rgba(255, 20, 147, 0.12);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(233, 30, 140, 0.1);
+        }
+
+        .tab-btn:hover:not(.active) {
+            color: #c0b0c0;
+        }
+
+        /* Tela de sucesso */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .success-screen.active {
+            display: block;
+        }
+
+        .success-screen .icon-success {
+            font-size: 4rem;
+            color: #ff1493;
+            margin-bottom: 1rem;
+        }
+
+        /* Scrollbar custom */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ff1493;
+            border-radius: 10px;
+        }
+
+        /* Responsividade extra */
+        @media (max-width: 640px) {
+            .glass {
+                border-radius: 32px;
+                padding: 1.5rem 1.2rem !important;
+            }
+            .tab-btn {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.4rem;
+            }
+            .btn-gradient {
+                font-size: 0.9rem;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        /* Animações de fade */
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-delay {
+            animation: fadeIn 0.6s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Esconder campos condicionais */
+        .conditional-field {
+            display: none;
+        }
+
+        .conditional-field.visible {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-animated"></div>
+
+    <div class="w-full max-w-5xl glass p-6 md:p-8 lg:p-10 fade-in">
+
+        <!-- Logo e cabeçalho -->
+        <div class="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-pink-500/20">
+                    <i class="fas fa-rainbow"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-black text-white leading-tight">
+                        22ª Parada do Orgulho
+                    </h1>
+                    <span class="text-sm text-pink-400 font-semibold">LGBTQIAPN+ · Betim 2026</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-2xl border border-white/5">
+                <i class="fas fa-flag text-pink-400"></i>
+                <span class="text-xs text-slate-400 font-bold tracking-wider">PARADABETIM.COM</span>
+            </div>
+        </div>
+
+        <!-- Barra de progresso -->
+        <div class="mb-6">
+            <div class="flex justify-between text-xs text-slate-500 font-semibold mb-1">
+                <span>Progresso</span>
+                <span id="progressLabel">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width:0%;"></div>
+            </div>
+        </div>
+
+        <!-- Formulário -->
+        <form id="mainForm" class="space-y-6">
+
+            <!-- Tabs: Artista / Voluntário -->
+            <div class="tab-selector">
+                <button type="button" class="tab-btn active" data-role="artista">
+                    <i class="fas fa-microphone-alt mr-2"></i> Artista
+                </button>
+                <button type="button" class="tab-btn" data-role="voluntario">
+                    <i class="fas fa-hands-helping mr-2"></i> Voluntário
+                </button>
+            </div>
+
+            <!-- ========== CAMPOS COMUNS ========== -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="label-glass"><i class="fas fa-user mr-2 text-pink-400"></i> Nome completo *</label>
+                    <input type="text" class="input-glass" placeholder="Seu nome" required id="nome" />
+                </div>
+                <div>
+                    <label class="label-glass"><i class="fas fa-envelope mr-2 text-pink-400"></i> E-mail *</label>
+                    <input type="email" class="input-glass" placeholder="seu@email.com" required id="email" />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="label-glass"><i class="fas fa-phone mr-2 text-pink-400"></i> Telefone / WhatsApp *</label>
+                    <input type="tel" class="input-glass" placeholder="(31) 9 0000-0000" required id="telefone" />
+                </div>
+                <div>
+                    <label class="label-glass"><i class="fas fa-calendar-alt mr-2 text-pink-400"></i> Data de nascimento</label>
+                    <input type="date" class="input-glass" id="nascimento" />
+                </div>
+            </div>
+
+            <div>
+                <label class="label-glass"><i class="fas fa-map-pin mr-2 text-pink-400"></i> Cidade / Estado</label>
+                <input type="text" class="input-glass" placeholder="Betim - MG" id="cidade" />
+            </div>
+
+            <!-- ========== CAMPOS DO ARTISTA ========== -->
+            <div id="artistaFields" class="space-y-4 conditional-field visible">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="label-glass"><i class="fas fa-tag mr-2 text-pink-400"></i> Nome artístico *</label>
+                        <input type="text" class="input-glass" placeholder="Seu nome de palco" id="nomeArtistico" />
+                    </div>
+                    <div>
+                        <label class="label-glass"><i class="fas fa-music mr-2 text-pink-400"></i> Gênero / Estilo *</label>
+                        <select class="input-glass" id="genero">
+                            <option value="">Selecione...</option>
+                            <option>Pop</option>
+                            <option>Rock</option>
+                            <option>Eletrônica</option>
+                            <option>MPB</option>
+                            <option>Samba</option>
+                            <option>Funk</option>
+                            <option>Drag Queen</option>
+                            <option>Performance</option>
+                            <option>DJ</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="label-glass"><i class="fas fa-align-left mr-2 text-pink-400"></i> Biografia / Descrição artística</label>
+                    <textarea class="input-glass" rows="3" placeholder="Conte um pouco sobre sua trajetória..." id="bio"></textarea>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="label-glass"><i class="fas fa-link mr-2 text-pink-400"></i> Link do portfólio (YouTube, SoundCloud, etc.)</label>
+                        <input type="url" class="input-glass" placeholder="https://..." id="portfolioLink" />
+                    </div>
+                    <div>
+                        <label class="label-glass"><i class="fas fa-coins mr-2 text-pink-400"></i> Cachê pretendido (R$)</label>
+                        <input type="number" class="input-glass" placeholder="Ex: 500" id="cache" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="label-glass"><i class="fas fa-share-alt mr-2 text-pink-400"></i> Redes sociais</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <input type="url" class="input-glass" placeholder="Instagram" id="instagram" />
+                        <input type="url" class="input-glass" placeholder="YouTube" id="youtube" />
+                        <input type="url" class="input-glass" placeholder="TikTok" id="tiktok" />
+                        <input type="url" class="input-glass" placeholder="Spotify" id="spotify" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== CAMPOS DO VOLUNTÁRIO ========== -->
+            <div id="voluntarioFields" class="space-y-4 conditional-field">
+                <div>
+                    <label class="label-glass"><i class="fas fa-bolt mr-2 text-pink-400"></i> Áreas de atuação (selecione uma ou mais) *</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-1">
+                        <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                            <input type="checkbox" class="accent-pink-500" value="recepcao" /> Recepção
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                            <input type="checkbox" class="accent-pink-500" value="palco" /> Apoio ao palco
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                            <input type="checkbox" class="accent-pink-500" value="logistica" /> Logística
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                            <input type="checkbox" class="accent-pink-500" value="comunicacao" /> Comunicação
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                            <input type="checkbox" class="accent-pink-500" value="primeiros_socorros" /> Primeiros socorros
+                        </label>
+                        <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer">
+                            <input type="checkbox" class="accent-pink-500" value="outros" /> Outros
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="label-glass"><i class="fas fa-clock mr-2 text-pink-400"></i> Disponibilidade de horário</label>
+                    <select class="input-glass" id="disponibilidade">
+                        <option value="">Selecione...</option>
+                        <option>Manhã (8h às 12h)</option>
+                        <option>Tarde (13h às 18h)</option>
+                        <option>Noite (19h às 23h)</option>
+                        <option>Integral (8h às 23h)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="label-glass"><i class="fas fa-tshirt mr-2 text-pink-400"></i> Tamanho da camiseta</label>
+                    <select class="input-glass" id="tamanhoCamiseta">
+                        <option value="">Selecione...</option>
+                        <option>PP</option>
+                        <option>P</option>
+                        <option>M</option>
+                        <option>G</option>
+                        <option>GG</option>
+                        <option>XG</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ========== TERMOS ========== -->
+            <div class="flex items-start gap-3 pt-2">
+                <input type="checkbox" id="termos" class="mt-1 accent-pink-500 w-5 h-5" required />
+                <label for="termos" class="text-sm text-slate-400 leading-relaxed">
+                    Concordo com os termos de participação e autorizo o uso da minha imagem para fins de divulgação do evento.
+                </label>
+            </div>
+
+            <!-- ========== BOTÃO ENVIAR ========== -->
+            <button type="submit" class="btn-gradient">
+                <i class="fas fa-paper-plane mr-2"></i> Enviar inscrição
+            </button>
+
+            <p class="text-center text-xs text-slate-500 mt-2">
+                * Campos obrigatórios
+            </p>
+
+        </form>
+
+        <!-- ========== TELA DE SUCESSO ========== -->
+        <div class="success-screen" id="successScreen">
+            <div class="icon-success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="text-3xl font-black text-white mb-2">Inscrição enviada! 🎉</h2>
+            <p class="text-slate-300 text-lg max-w-md mx-auto">
+                Sua participação foi registrada com sucesso. Em breve entraremos em contato!
+            </p>
+            <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                <button onclick="location.reload()" class="btn-gradient" style="width:auto; padding:0.7rem 2rem;">
+                    <i class="fas fa-redo mr-2"></i> Nova inscrição
+                </button>
+                <a href="index.html" class="btn-outline-glass" style="border-color:rgba(255,255,255,0.1); display:inline-block; padding:0.7rem 2rem; text-decoration:none;">
+                    <i class="fas fa-home mr-2"></i> Voltar à página inicial
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        (function() {
+
+            // ===== TABS =====
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const artistaFields = document.getElementById('artistaFields');
+            const voluntarioFields = document.getElementById('voluntarioFields');
+            let currentRole = 'artista';
+
+            function switchTab(role) {
+                currentRole = role;
+                tabBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.role === role);
+                });
+                if (role === 'artista') {
+                    artistaFields.classList.add('visible');
+                    voluntarioFields.classList.remove('visible');
+                } else {
+                    voluntarioFields.classList.add('visible');
+                    artistaFields.classList.remove('visible');
+                }
+                updateProgress();
+            }
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchTab(this.dataset.role);
+                });
+            });
+
+            // ===== PROGRESSO =====
+            const progressFill = document.getElementById('progressFill');
+            const progressLabel = document.getElementById('progressLabel');
+
+            function updateProgress() {
+                const form = document.getElementById('mainForm');
+                const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+                let filled = 0;
+                let total = inputs.length;
+
+                let visibleInputs = [];
+                inputs.forEach(inp => {
+                    let field = inp.closest('.conditional-field');
+                    if (field) {
+                        if (field.classList.contains('visible')) {
+                            visibleInputs.push(inp);
+                        }
+                    } else {
+                        visibleInputs.push(inp);
+                    }
+                });
+
+                total = visibleInputs.length;
+                visibleInputs.forEach(inp => {
+                    if (inp.type === 'checkbox') {
+                        if (inp.checked) filled++;
+                    } else if (inp.value && inp.value.trim() !== '') {
+                        filled++;
+                    }
+                });
+
+                let percent = total > 0 ? Math.round((filled / total) * 100) : 0;
+                progressFill.style.width = percent + '%';
+                progressLabel.textContent = percent + '%';
+            }
+
+            document.querySelectorAll('input, select, textarea').forEach(el => {
+                el.addEventListener('change', updateProgress);
+                el.addEventListener('input', updateProgress);
+            });
+
+            // ===== SUBMISSÃO =====
+            const form = document.getElementById('mainForm');
+            const successScreen = document.getElementById('successScreen');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const nome = document.getElementById('nome').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const telefone = document.getElementById('telefone').value.trim();
+                const termos = document.getElementById('termos').checked;
+
+                if (!nome || !email || !telefone || !termos) {
+                    alert('Por favor, preencha todos os campos obrigatórios e aceite os termos.');
+                    return;
+                }
+
+                if (currentRole === 'artista') {
+                    const nomeArt = document.getElementById('nomeArtistico').value.trim();
+                    const genero = document.getElementById('genero').value;
+                    if (!nomeArt || !genero) {
+                        alert('Por favor, preencha o nome artístico e o gênero/estilo.');
+                        return;
+                    }
+                }
+
+                if (currentRole === 'voluntario') {
+                    const areas = document.querySelectorAll('#voluntarioFields input[type="checkbox"]:checked');
+                    if (areas.length === 0) {
+                        alert('Selecione pelo menos uma área de atuação.');
+                        return;
+                    }
+                }
+
+                const btn = form.querySelector('button[type="submit"]');
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Enviando...';
+
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    successScreen.classList.add('active');
+                    progressFill.style.width = '100%';
+                    progressLabel.textContent = '100%';
+                }, 1500);
+            });
+
+            setTimeout(updateProgress, 100);
+
+        })();
+    </script>
+
+</body>
+</html>
