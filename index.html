@@ -172,28 +172,6 @@
             background: rgba(233, 30, 140, 0.08);
         }
 
-        /* ===== BREADCRUMB ===== */
-        .breadcrumb {
-            padding: 1rem 0 0.2rem;
-            font-size: 0.8rem;
-            color: #6a5a6a;
-            background: transparent;
-        }
-
-        .breadcrumb a {
-            color: #e91e8c;
-            font-weight: 600;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb .sep {
-            margin: 0 0.4rem;
-            color: #aaa;
-        }
-
         /* ===== HERO ===== */
         .hero {
             min-height: 80vh;
@@ -201,7 +179,9 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(135deg, #ff1493, #ff69b4, #ff2f92);
+            background: linear-gradient(135deg, #FF6B9D, #FF4081, #FF80AB, #FFAB91, #E1BEE7, #CE93D8);
+            background-size: 300% 300%;
+            animation: softRainbow 12s ease infinite alternate;
             color: #fff;
             padding: 3rem 1rem;
             padding-top: 90px;
@@ -211,9 +191,17 @@
             position: relative;
         }
 
+        @keyframes softRainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .hero-content {
             width: min(1100px, 95%);
             padding: 1.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content h1 {
@@ -221,34 +209,34 @@
             font-weight: 900;
             line-height: 1.05;
             margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         .hero-content h1 .rainbow-text {
             background: linear-gradient(90deg,
-                    #ff0000, #ff8800, #ffff00, #00cc44,
-                    #0088ff, #6633cc, #ff00aa, #ff0000);
+                    #FF6B9D, #FF4081, #FF80AB, #FFAB91,
+                    #E1BEE7, #CE93D8, #FF6B9D);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: rainbowMoveTitle 4s linear infinite;
             display: inline-block;
+            text-shadow: none;
         }
 
         @keyframes rainbowMoveTitle {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 300% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
         }
 
         .hero-content .data {
             font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
-            opacity: 0.95;
+            color: #fff;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.15);
         }
 
         .contador {
@@ -264,9 +252,9 @@
             padding: 1.2rem;
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             transition: transform 0.3s;
         }
 
@@ -278,32 +266,37 @@
             display: block;
             font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 900;
+            color: #fff;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
 
         .label {
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: .9rem;
-            opacity: 0.85;
+            color: #fff;
+            font-weight: 600;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
 
         .frase-hero {
             margin-top: 0.5rem;
             font-size: clamp(1rem, 2vw, 1.3rem);
-            opacity: .95;
             font-weight: 600;
+            color: #fff;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.15);
         }
 
-        /* ===== HERO CTA (abaixo do cronômetro) ===== */
+        /* ===== HERO CTA ===== */
         .hero-cta {
             margin: 1.5rem auto 0.5rem;
             padding: 1.2rem 1.8rem;
             max-width: 600px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 28px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.25);
             text-align: center;
         }
 
@@ -316,13 +309,14 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
 
         .hero-cta p {
             font-size: 0.9rem;
-            opacity: 0.95;
             margin-bottom: 0.8rem;
             color: #fff;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
 
         .btn-hero-cta {
@@ -335,6 +329,7 @@
             font-size: 0.95rem;
             transition: background 0.3s, transform 0.2s;
             border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .btn-hero-cta:hover {
@@ -347,7 +342,7 @@
             margin-left: 0.4rem;
         }
 
-        /* ===== PROGRAMAÇÃO DO DIA (ABAIXO DO HERO) ===== */
+        /* ===== PROGRAMAÇÃO DO DIA ===== */
         .programacao-resumo {
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(8px);
@@ -433,7 +428,6 @@
             justify-content: center;
         }
 
-        /* ---- BLUR PERMANENTE nos nomes e gêneros (sem hover) ---- */
         .item-horario .artista-nome,
         .item-horario .badge-atracao {
             filter: blur(5px);
@@ -472,7 +466,7 @@
             color: #e91e8c;
         }
 
-        /* ===== CONTEÚDO PRINCIPAL (NOTÍCIAS) ===== */
+        /* ===== CONTEÚDO PRINCIPAL ===== */
         .main-grid {
             display: block;
             margin: 2.5rem 0;
@@ -724,11 +718,11 @@
             grid-template-columns: 1.8fr 1.4fr;
             gap: 2.5rem;
             margin-bottom: 2.5rem;
-            align-items: center; /* centraliza verticalmente as colunas */
+            align-items: center;
         }
 
         .footer-col:first-child {
-            text-align: center; /* centraliza logo e texto da primeira coluna */
+            text-align: center;
         }
 
         .footer-col h4 {
@@ -762,7 +756,7 @@
             height: 44px;
             width: auto;
             margin-bottom: 0.5rem;
-            display: inline-block; /* permite centralizar com text-align */
+            display: inline-block;
         }
 
         .footer-col .contato-item {
@@ -1102,16 +1096,25 @@
     <header class="header" id="header" role="banner">
         <div class="container">
             <a href="index.html" class="logo" aria-label="Página inicial">
-            
+                <!-- Logo e menu (mantidos conforme original) -->
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav class="nav" id="mainNav" role="navigation" aria-label="Menu principal">
+                <a href="#main" class="active"><i class="fas fa-home" aria-hidden="true"></i> Início</a>
+                <a href="#noticias-title"><i class="fas fa-newspaper" aria-hidden="true"></i> Notícias</a>
+                <a href="#prog-title"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Programação</a>
+                <a href="#local-title"><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Local</a>
+                <a href="https://paradabetim.com.br/inscricoes" target="_blank" rel="noopener"><i class="fas fa-hand-paper" aria-hidden="true"></i> Inscrições</a>
             </nav>
         </div>
     </header>
 
-
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
         <div class="hero-content">
-            <h1 id="hero-title">22ª Parada do Orgulho <span class="rainbow-text">LGBTQIAPN+</span></h1>
+            <h1 id="hero-title">22ª Parada do Orgulho <span class="rainbow-text">LGBTQIAPN+ de Betim</span></h1>
 
             <div class="data">
                 26 de Julho de 2026 · 12h
@@ -1136,7 +1139,11 @@
                 </div>
             </div>
 
-            <!-- ===== CTA ABAIXO DO CRONÔMETRO ===== -->
+            <div class="frase-hero">
+                22 anos de luta. Orgulho que constrói futuros. ✨
+            </div>
+
+            <!-- CTA -->
             <div class="hero-cta">
                 <h3><i class="fas fa-hand-paper" aria-hidden="true"></i> Artistas Voluntários</h3>
                 <p>Quer se apresentar na Parada? Inscreva-se como artista voluntário!</p>
@@ -1144,14 +1151,10 @@
                     Inscreva-se aqui <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
-
-            <div class="frase-hero">
-                22 anos de luta. Orgulho que constrói futuros. ✨
-            </div>
         </div>
     </section>
 
-    <!-- ===== PROGRAMAÇÃO DO DIA (12h às 23h) ===== -->
+    <!-- ===== PROGRAMAÇÃO DO DIA ===== -->
     <section class="container programacao-resumo" aria-labelledby="prog-title">
         <h2 class="section-title" id="prog-title"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Programação do Dia</h2>
         <div class="lista-horarios">
@@ -1214,14 +1217,13 @@
                 <h2 class="section-title" id="noticias-title"><i class="fas fa-newspaper" aria-hidden="true"></i> Últimas Notícias</h2>
                 <div class="noticias-grid">
 
-                    <!-- ===== NOTÍCIA 1 ===== -->
+                    <!-- NOTÍCIA 1 -->
                     <article class="noticia-card" data-titulo="Parada do Orgulho LGBTQIA+ de Betim será no dia 26 de julho" data-data="26 de julho de 2026">
                         <div class="thumb" role="img" aria-label="Imagem da Parada do Orgulho LGBTQIA+ em Betim">
                             <img src="https://www.betimonline.com/images/artigos/completo/Julho_2026/16-07-2026.jpg" alt="22ª Parada do Orgulho LGBTQIA+ em Betim" loading="lazy" />
                             <span class="categoria-badge">Destaque</span>
                         </div>
                         <div class="body">
-                            <!-- DATA REMOVIDA -->
                             <h3>Parada do Orgulho LGBTQIA+ de Betim será no dia 26 de julho</h3>
                             <p class="preview">A 22ª Parada do Orgulho LGBTQIAPN+ de Betim já tem data marcada. O evento acontece no último domingo de julho, dia 26, a partir das 12h, no estacionamento do Ginásio Poliesportivo Divino Braga.</p>
                             <div class="full-text">
@@ -1238,14 +1240,13 @@
                         </div>
                     </article>
 
-                    <!-- ===== NOTÍCIA 2 ===== -->
+                    <!-- NOTÍCIA 2 -->
                     <article class="noticia-card" data-titulo="Faça parte da Parada de Betim! 🌈" data-data="6 de julho de 2026">
                         <div class="thumb" role="img" aria-label="Chamada para artistas e voluntários">
                             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx6CmeuNombOOJkLII2TFTr4FiRt2_D5jT3gSNkR9vMkiyA_sF2Itur4W6BDj5pz4gdW7DWqpKU2nIPxDYvBR08ClkTEd_ANfIt8Slkwc2sMB50oojZKCkjoEESsaTKgEfqQEc34BkcWR7iuMhHZAGtnQJQcEGYXktEhagSo_g__RAsVWqicej_fLi7CL_/s1600/aa.png" alt="Faça parte da Parada de Betim" loading="lazy" />
                             <span class="categoria-badge">Participe</span>
                         </div>
                         <div class="body">
-                            <!-- DATA REMOVIDA -->
                             <h3>Faça parte da Parada de Betim! 🌈</h3>
                             <p class="preview">A Parada de Betim está de portas abertas para quem deseja construir este evento conosco.</p>
                             <div class="full-text">
@@ -1288,21 +1289,18 @@
         </div>
     </div>
 
-    <!-- ===== RODAPÉ GLOBAL ===== -->
+    <!-- ===== RODAPÉ ===== -->
     <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-grid">
-
-                <!-- Coluna 1: Logo + Descrição (centralizada) -->
                 <div class="footer-col">
                     <div class="logo-footer">
-                        
+                        <!-- logo -->
                     </div>
                     <p>22ª Parada do Orgulho LGBTQIAPN+<br />Betim, 26 de Julho de 2026</p>
                     <p style="font-size:0.85rem;color:#6a5a6a;margin-top:0.2rem;">Orgulho, diversidade e resistência.</p>
                 </div>
 
-                <!-- Coluna 2: Contato + Redes -->
                 <div class="footer-col">
                     <h4>Contato</h4>
                     <div class="contato-item">
@@ -1332,10 +1330,8 @@
                         </a>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Barra inferior -->
             <div class="footer-bottom">
                 <div class="legal-links">
                     <a href="#">Política de Privacidade</a>
