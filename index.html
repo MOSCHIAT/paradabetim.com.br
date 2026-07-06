@@ -724,6 +724,11 @@
             grid-template-columns: 1.8fr 1.4fr;
             gap: 2.5rem;
             margin-bottom: 2.5rem;
+            align-items: center; /* centraliza verticalmente as colunas */
+        }
+
+        .footer-col:first-child {
+            text-align: center; /* centraliza logo e texto da primeira coluna */
         }
 
         .footer-col h4 {
@@ -757,6 +762,7 @@
             height: 44px;
             width: auto;
             margin-bottom: 0.5rem;
+            display: inline-block; /* permite centralizar com text-align */
         }
 
         .footer-col .contato-item {
@@ -933,6 +939,10 @@
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-col:first-child {
                 text-align: center;
             }
 
@@ -1243,7 +1253,7 @@
                         </div>
                     </article>
 
-                    <!-- ===== NOTÍCIA 2 (COM IMAGEM NOVA) ===== -->
+                    <!-- ===== NOTÍCIA 2 ===== -->
                     <article class="noticia-card" data-titulo="Faça parte da Parada de Betim! 🌈" data-data="6 de julho de 2026">
                         <div class="thumb" role="img" aria-label="Chamada para artistas e voluntários">
                             <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx6CmeuNombOOJkLII2TFTr4FiRt2_D5jT3gSNkR9vMkiyA_sF2Itur4W6BDj5pz4gdW7DWqpKU2nIPxDYvBR08ClkTEd_ANfIt8Slkwc2sMB50oojZKCkjoEESsaTKgEfqQEc34BkcWR7iuMhHZAGtnQJQcEGYXktEhagSo_g__RAsVWqicej_fLi7CL_/s1600/aa.png" alt="Faça parte da Parada de Betim" loading="lazy" />
@@ -1298,7 +1308,7 @@
         <div class="container">
             <div class="footer-grid">
 
-                <!-- Coluna 1: Logo + Descrição -->
+                <!-- Coluna 1: Logo + Descrição (centralizada) -->
                 <div class="footer-col">
                     <div class="logo-footer">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-pXuglPdFx0kRGs5zkdNQOa9chJM7feXX6b12F1d493BJZ08UdKdj-rURKXcxCOY4ZndICyZKqPhtdLwA1ufyZsQZBXsZTjHrCjL-3M69anxuxmtiEufmUBilNva6yyr9AKcUAr5AwUvIyTDmuzDzBuLCRSNChRptEbCCRsTXrFD8zPAEMNei9gzkwi7Y/s1600/Screen%20Shot%202026-07-02%20at%2021.08.56.png" alt="paradabetim.com" style="height:44px;width:auto;" />
