@@ -294,6 +294,59 @@
             font-weight: 600;
         }
 
+        /* ===== HERO CTA (abaixo do cronômetro) ===== */
+        .hero-cta {
+            margin: 1.5rem auto 0.5rem;
+            padding: 1.2rem 1.8rem;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .hero-cta h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.2rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .hero-cta p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .btn-hero-cta {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: #e91e8c;
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+        }
+
+        .btn-hero-cta:hover {
+            background: #c2185b;
+            transform: translateY(-2px);
+            color: #fff;
+        }
+
+        .btn-hero-cta i {
+            margin-left: 0.4rem;
+        }
+
         /* ===== PROGRAMAÇÃO DO DIA (ABAIXO DO HERO) ===== */
         .programacao-resumo {
             background: rgba(255, 255, 255, 0.6);
@@ -380,19 +433,19 @@
             justify-content: center;
         }
 
-        /* ---- BLUR nos nomes e gêneros ---- */
+        /* ---- BLUR PERMANENTE nos nomes e gêneros (sem hover) ---- */
         .item-horario .artista-nome,
         .item-horario .badge-atracao {
             filter: blur(5px);
-            transition: filter 0.3s ease;
             user-select: none;
+            transition: none;
         }
 
         .item-horario:hover .artista-nome,
         .item-horario:hover .badge-atracao,
         .item-horario:focus-within .artista-nome,
         .item-horario:focus-within .badge-atracao {
-            filter: blur(0);
+            filter: blur(5px);
         }
 
         .badge-atracao {
@@ -419,11 +472,9 @@
             color: #e91e8c;
         }
 
-        /* ===== CONTEÚDO PRINCIPAL (NOTÍCIAS + SIDEBAR) ===== */
+        /* ===== CONTEÚDO PRINCIPAL (NOTÍCIAS) ===== */
         .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2.5rem;
+            display: block;
             margin: 2.5rem 0;
         }
 
@@ -490,15 +541,6 @@
             flex-direction: column;
         }
 
-        .noticia-card .body .data {
-            font-size: 0.75rem;
-            color: #6a5a6a;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.3rem;
-        }
-
         .noticia-card .body h3 {
             font-size: 1.1rem;
             font-weight: 800;
@@ -516,7 +558,6 @@
 
         .noticia-card .body .full-text {
             display: none;
-            /* usado apenas para guardar o conteúdo; não exibido diretamente */
         }
 
         .noticia-card .body .leia-mais {
@@ -629,130 +670,6 @@
 
         .modal-box .modal-body p {
             margin-bottom: 0.8rem;
-        }
-
-        /* ===== SIDEBAR ===== */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .sidebar .widget {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 24px;
-            padding: 1.5rem 1.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
-        }
-
-        .widget h3 {
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1a0a1a;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .widget h3 i {
-            color: #e91e8c;
-        }
-
-        .widget ul {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .widget ul li a {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.5rem 0.8rem;
-            border-radius: 12px;
-            transition: background 0.2s, color 0.2s;
-            color: #3a2a3a;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .widget ul li a i {
-            color: #e91e8c;
-            width: 1.2rem;
-            text-align: center;
-        }
-
-        .widget ul li a:hover,
-        .widget ul li a:focus-visible {
-            background: rgba(233, 30, 140, 0.05);
-            color: #e91e8c;
-        }
-
-        .widget-destaque .item-destaque {
-            display: flex;
-            gap: 1rem;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-            align-items: center;
-        }
-
-        .widget-destaque .item-destaque:last-child {
-            border-bottom: none;
-        }
-
-        .widget-destaque .item-destaque .numero {
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: #e91e8c;
-            opacity: 0.3;
-            min-width: 2.2rem;
-            text-align: center;
-        }
-
-        .widget-destaque .item-destaque .info {
-            flex: 1;
-        }
-
-        .widget-destaque .item-destaque .info .titulo {
-            font-weight: 700;
-            font-size: 0.9rem;
-            line-height: 1.3;
-            color: #1a0a1a;
-        }
-
-        .widget-destaque .item-destaque .info .meta {
-            font-size: 0.7rem;
-            color: #6a5a6a;
-        }
-
-        /* ===== BOTÃO INSCRIÇÃO NA SIDEBAR ===== */
-        .btn-inscricao {
-            display: inline-block;
-            margin-top: 0.8rem;
-            padding: 0.7rem 1.2rem;
-            background: #e91e8c;
-            color: #fff;
-            border-radius: 30px;
-            font-weight: 700;
-            text-align: center;
-            width: 100%;
-            transition: background 0.3s, transform 0.2s;
-            border: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-        }
-
-        .btn-inscricao:hover {
-            background: #c2185b;
-            transform: translateY(-2px);
-        }
-
-        .btn-inscricao i {
-            margin-left: 0.4rem;
         }
 
         /* ===== LOCAL ===== */
@@ -926,11 +843,6 @@
 
         /* ===== RESPONSIVO ===== */
         @media (max-width: 992px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .noticias-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1018,7 +930,6 @@
                 padding: 0.1rem 0.4rem;
             }
 
-            /* RODAPÉ CENTRALIZADO NO CELULAR */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -1063,7 +974,7 @@
                 font-size: clamp(2rem, 6vw, 3rem);
             }
             .main-grid {
-                gap: 1.5rem;
+                margin: 1.5rem 0;
             }
             .noticia-card .thumb {
                 height: 160px;
@@ -1101,6 +1012,21 @@
             }
             .modal-box .modal-title {
                 font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                padding: 1rem 1.2rem;
+                margin-top: 1rem;
+            }
+            .hero-cta h3 {
+                font-size: 1rem;
+            }
+            .hero-cta p {
+                font-size: 0.8rem;
+            }
+            .btn-hero-cta {
+                font-size: 0.85rem;
+                padding: 0.6rem 1.5rem;
             }
         }
 
@@ -1215,13 +1141,22 @@
                 </div>
             </div>
 
+            <!-- ===== CTA ABAIXO DO CRONÔMETRO ===== -->
+            <div class="hero-cta">
+                <h3><i class="fas fa-hand-paper" aria-hidden="true"></i> Artistas Voluntários</h3>
+                <p>Quer se apresentar na Parada? Inscreva-se como artista voluntário!</p>
+                <a href="https://paradabetim.com.br/inscricoes" class="btn-hero-cta" target="_blank" rel="noopener">
+                    Inscreva-se aqui <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
             <div class="frase-hero">
                 22 anos de luta. Orgulho que constrói futuros. ✨
             </div>
         </div>
     </section>
 
-    <!-- ===== PROGRAMAÇÃO DO DIA (ABAIXO DO HERO) ===== -->
+    <!-- ===== PROGRAMAÇÃO DO DIA (12h às 23h) ===== -->
     <section class="container programacao-resumo" aria-labelledby="prog-title">
         <h2 class="section-title" id="prog-title"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Programação do Dia</h2>
         <div class="lista-horarios">
@@ -1269,66 +1204,64 @@
                 <span class="hora">22:00</span>
                 <span class="atracoes-text"><i class="fas fa-glass-cheers" aria-hidden="true"></i> <span class="artista-nome">After DJ Fênix</span> <span class="badge-atracao">Festa</span></span>
             </div>
+            <div class="item-horario">
+                <span class="hora">23:00</span>
+                <span class="atracoes-text"><i class="fas fa-flag-checkered" aria-hidden="true"></i> Encerramento <span class="badge-atracao">Fim</span></span>
+            </div>
         </div>
     </section>
 
-    <!-- ===== CONTEÚDO PRINCIPAL (NOTÍCIAS + SIDEBAR) ===== -->
+    <!-- ===== CONTEÚDO PRINCIPAL (NOTÍCIAS) ===== -->
     <main id="main" role="main">
         <div class="container main-grid">
 
-            <!-- COLUNA PRINCIPAL: NOTÍCIAS -->
             <section aria-labelledby="noticias-title">
                 <h2 class="section-title" id="noticias-title"><i class="fas fa-newspaper" aria-hidden="true"></i> Últimas Notícias</h2>
                 <div class="noticias-grid">
 
-                    <!-- NOTÍCIA 1 -->
-                    <article class="noticia-card" data-titulo="Betim promove seminário sobre inclusão e atendimento humanizado à população LGBTQIA+" data-data="9 de julho de 2026">
-                        <div class="thumb" role="img" aria-label="Imagem do seminário em Betim">
-                            <img src="https://www.otempobetim.com.br/adobe/dynamicmedia/deliver/dm-aid--85e0e1d4-41d5-4843-b86b-517d2f85ab4a/cidades---betim-betim-parada-lgbtqiapn--direitos-humanos-1782256463.jpg" alt="Seminário sobre inclusão em Betim" loading="lazy" />
+                    <!-- ===== NOTÍCIA 1 ===== -->
+                    <article class="noticia-card" data-titulo="Parada do Orgulho LGBTQIA+ de Betim será no dia 26 de julho" data-data="26 de julho de 2026">
+                        <div class="thumb" role="img" aria-label="Imagem da Parada do Orgulho LGBTQIA+ em Betim">
+                            <img src="https://www.betimonline.com/images/artigos/completo/Julho_2026/16-07-2026.jpg" alt="22ª Parada do Orgulho LGBTQIA+ em Betim" loading="lazy" />
                             <span class="categoria-badge">Destaque</span>
                         </div>
                         <div class="body">
-                            <span class="data">9 de julho de 2026</span>
-                            <h3>Betim promove seminário sobre inclusão e atendimento humanizado à população LGBTQIA+</h3>
-                            <p class="preview">Com o objetivo de fortalecer o debate sobre inclusão, respeito à diversidade e garantia de direitos, Betim realiza, no próximo dia 9 de julho, das 8h30 às 12h, no Auditório Ady Rosa de Freitas, o 4º Seminário Municipal de Letramento e Visibilidade da População LGBTQIA+.</p>
+                            <!-- DATA REMOVIDA -->
+                            <h3>Parada do Orgulho LGBTQIA+ de Betim será no dia 26 de julho</h3>
+                            <p class="preview">A 22ª Parada do Orgulho LGBTQIAPN+ de Betim já tem data marcada. O evento acontece no último domingo de julho, dia 26, a partir das 12h, no estacionamento do Ginásio Poliesportivo Divino Braga.</p>
                             <div class="full-text">
-                                <p>Promovido pela Prefeitura de Betim, por meio da Superintendência de Igualdade, o evento busca ampliar o conhecimento sobre a temática e contribuir para a construção de políticas públicas cada vez mais acolhedoras e inclusivas.</p>
-                                <p>A iniciativa é destinada a servidores públicos, profissionais das áreas de assistência social, saúde e educação, além de representantes da sociedade civil interessados no tema. A programação tem como foco o fortalecimento de práticas de atendimento baseadas no respeito à diversidade, na equidade e na promoção da cidadania.</p>
-                                <p>O seminário contará com palestras de Vênus Drubscky, coordenadora do Centro de Referência LGBT de Belo Horizonte, e de Jonatas Hygino Pena de Mello, defensor público estadual com atuação nas pautas relacionadas à população LGBTQIA+ e na Vara de Família. Os convidados abordarão temas como letramento LGBTQIA+, atendimento humanizado e os principais desafios enfrentados por essa população no acesso aos serviços públicos.</p>
-                                <p>De acordo com o diretor municipal de Políticas Públicas LGBTQIA+ de Betim, Leonidas Ferraz, o seminário dá continuidade às ações desenvolvidas pelo município para ampliar a visibilidade e fortalecer a promoção dos direitos da população LGBTQIA+.</p>
-                                <p>“Em sua quarta edição, o seminário reúne representantes de diferentes áreas da administração pública, como assistência social, saúde e educação, para discutir práticas de acolhimento e de atendimento respeitoso às diferentes identidades de gênero e orientações sexuais. Nosso objetivo é contribuir para a construção de serviços públicos cada vez mais inclusivos e preparados para atender toda a população com dignidade”, afirma.</p>
-                                <p>A superintendente de Igualdade, Iracema Assis, destaca que a iniciativa representa um importante instrumento de qualificação dos servidores e de fortalecimento das políticas de promoção da igualdade. “O seminário é uma oportunidade para ampliar o letramento sobre a temática LGBTQIA+ e conscientizar os servidores sobre a importância de um atendimento pautado pelo respeito, pela equidade e pela dignidade. Pequenas atitudes e expressões podem gerar acolhimento ou exclusão. Por isso, é fundamental refletir sobre práticas, linguagem e formas de atendimento que assegurem o respeito aos direitos de todas as pessoas”, ressalta.</p>
-                                <p>As inscrições são gratuitas e podem ser realizadas pelo endereço betim.mg.gov.br/politicaspublicas.</p>
+                                <p>A 22ª Parada do Orgulho LGBTQIAPN+ de Betim já tem data marcada. O evento acontece no último domingo de julho, dia 26, a partir das 12h, no estacionamento do Ginásio Poliesportivo Divino Braga.</p>
+                                <p>A programação contará com praça de alimentação, apresentações artísticas, marcha com trio elétrico pela avenida Edméia Mattos Lazzarotti até a Praça do Encontro, ato político e, para encerrar a festa, show da banda Lex Luthor.</p>
+                                <p>Segundo a Prefeitura de Betim, a programação comemorativa começou no dia 26 de junho com a iluminação especial do Museu Paulo Araújo Moreira Gontijo e da Rodoviária de Betim. A ação fez referência ao Dia Internacional do Orgulho LGBTQIA+, celebrado mundialmente em 28 de junho.</p>
+                                <p>As atividades têm como objetivo ampliar a visibilidade da população LGBTQIA+, fortalecer as políticas públicas voltadas para a comunidade e incentivar a construção de uma sociedade mais inclusiva, baseada no respeito às diferenças e na garantia de direitos.</p>
+                                <p>No dia 9 de julho, das 9h às 12h, será realizado o 4º Seminário Municipal de Letramento e Visibilidade das Pessoas LGBTQIA+, no Auditório Ady Rosa de Freitas. O encontro contará com a participação da coordenadora do Centro de Referência LGBT de Belo Horizonte, Vênus Drubscky, e do defensor público estadual Jonatas Mello, que irão abordar temas relacionados à cidadania, aos direitos e ao enfrentamento da discriminação.</p>
+                                <p>A programação segue no dia 24 de julho com a realização do 14º Prêmio de Direitos Humanos LGBTQIA+ de Betim. A cerimônia acontecerá na Câmara Municipal, das 18h às 21h, homenageando pessoas, coletivos e instituições que contribuem para a promoção dos direitos da população LGBTQIA+ no município.</p>
+                                <p>Encerrando as atividades do mês, no dia 26 de julho será realizada a 22ª Parada do Orgulho LGBTQIA+, que neste ano traz como tema <strong>"22 anos de luta: orgulho que constrói futuros"</strong>.</p>
+                                <p>Para acompanhar novidades, programação e informações sobre a Parada, siga o Instagram <strong>@paradabetim.com.br</strong>.</p>
                             </div>
                             <button class="leia-mais">Leia mais <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
                     </article>
 
-                    <!-- NOTÍCIA 2 -->
-                    <article class="noticia-card" data-titulo="Betim celebra 22 anos da Parada LGBTQIA+ com debates, homenagens e marcha pela diversidade" data-data="26 de julho de 2026">
-                        <div class="thumb" style="background: linear-gradient(135deg, #ff1493, #ff6b9d); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem;" role="img" aria-label="Ilustração da Parada LGBTQIA+">
-                            <i class="fas fa-flag" aria-hidden="true"></i>
-                            <span class="categoria-badge">Destaque</span>
+                    <!-- ===== NOTÍCIA 2 (COM IMAGEM NOVA) ===== -->
+                    <article class="noticia-card" data-titulo="Faça parte da Parada de Betim! 🌈" data-data="6 de julho de 2026">
+                        <div class="thumb" role="img" aria-label="Chamada para artistas e voluntários">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx6CmeuNombOOJkLII2TFTr4FiRt2_D5jT3gSNkR9vMkiyA_sF2Itur4W6BDj5pz4gdW7DWqpKU2nIPxDYvBR08ClkTEd_ANfIt8Slkwc2sMB50oojZKCkjoEESsaTKgEfqQEc34BkcWR7iuMhHZAGtnQJQcEGYXktEhagSo_g__RAsVWqicej_fLi7CL_/s1600/aa.png" alt="Faça parte da Parada de Betim" loading="lazy" />
+                            <span class="categoria-badge">Participe</span>
                         </div>
                         <div class="body">
-                            <span class="data">26 de julho de 2026</span>
-                            <h3>Betim celebra 22 anos da Parada LGBTQIA+ com debates, homenagens e marcha pela diversidade</h3>
-                            <p class="preview">Betim terá uma série de atividades voltadas à promoção dos direitos da população LGBTQIA+ entre junho e julho deste ano. A programação inclui ações de conscientização, debates sobre cidadania, homenagens e a realização da 22ª Parada do Orgulho LGBTQIA+.</p>
+                            <!-- DATA REMOVIDA -->
+                            <h3>Faça parte da Parada de Betim! 🌈</h3>
+                            <p class="preview">A Parada de Betim está de portas abertas para quem deseja construir este evento conosco.</p>
                             <div class="full-text">
-                                <p>Considerada uma das maiores manifestações pela diversidade da região metropolitana de Belo Horizonte, a programação começa com a iluminação especial do Museu Paulo Araújo Moreira Gontijo e da Rodoviária de Betim no dia 25 de junho, marcando o Dia Internacional do Orgulho LGBTQIA+.</p>
-                                <p>A agenda continua no dia 9 de julho com o 4º Seminário Municipal de Letramento e Visibilidade das Pessoas LGBTQIA+, no Auditório Ady Rosa de Freitas, com palestras de Vênus Drubscky e do defensor público Jonatas Mello.</p>
-                                <p>Já no dia 24 de julho, a Câmara Municipal sediará o 14º Prêmio de Direitos Humanos LGBTQIA+ de Betim, homenageando pessoas e instituições que atuam na defesa dos direitos da comunidade.</p>
-                                <p>O encerramento será em 26 de julho com a 22ª Parada do Orgulho LGBTQIA+ de Betim, com o tema “22 anos de luta: orgulho que constrói futuros”. A concentração está marcada para às 12h no estacionamento do Ginásio Poliesportivo Divino Ferreira Braga, com marcha pela avenida Edméia Mattos Lazzarotti até a Praça do Encontro.</p>
-                                <p>A programação contará com praça de alimentação, apresentações artísticas, ato político e show de encerramento da banda Lex Luthor.</p>
-                                <p>Segundo a superintendente de Igualdade Racial, Diversidade Sexual e de Gênero de Betim, Iracema Assis, as atividades buscam ampliar o debate sobre cidadania e reforçar a importância do combate à discriminação. “O respeito, a promoção de direitos e a visibilidade da população LGBTQIA+ precisam ser trabalhados durante todo o ano. Pensamos em ações acessíveis que dialogam com diferentes públicos e reforçam o compromisso com a diversidade”, afirmou.</p>
-                                <p><strong>Programação da Parada*</strong><br />
-                                12h – Abertura e praça de alimentação<br />
-                                13h30 – Atrações artísticas com drag queens, cantores e grupos de dança<br />
-                                16h30 – Marcha com trio elétrico até a Praça do Encontro<br />
-                                18h30 – Ato político<br />
-                                19h – Show de encerramento com a banda Lex Luthor<br />
-                                23h – Dispersão</p>
-                                <p style="font-size:0.8rem;color:#6a5a6a;">* Programação pode sofrer alterações!</p>
+                                <p>A Parada de Betim está de portas abertas para quem deseja construir este evento conosco.</p>
+                                <p>Estamos convocando:</p>
+                                <p>🎤 <strong>Artistas locais</strong> — cantores, DJs, drag queens, performers, grupos de dança, músicos, poetas e outras expressões culturais.</p>
+                                <p>🤝 <strong>Pessoas voluntárias</strong> — venha contribuir na organização, recepção, apoio logístico, comunicação e diversas outras áreas.</p>
+                                <p>Acreditamos que a cultura e a participação da comunidade tornam a Parada mais forte, diversa e representativa.</p>
+                                <p>Sua arte, seu talento e sua dedicação fazem a diferença.</p>
+                                <p><strong>Inscreva-se e faça parte desta história!</strong></p>
+                                <p style="margin-top:0.8rem;">👉 <a href="https://paradabetim.com.br/inscricoes" style="color:#e91e8c;font-weight:700;" target="_blank">Clique aqui para se inscrever</a></p>
                             </div>
                             <button class="leia-mais">Leia mais <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                         </div>
@@ -1336,39 +1269,6 @@
 
                 </div>
             </section>
-
-            <!-- SIDEBAR -->
-            <aside class="sidebar" aria-label="Barra lateral">
-
-                <!-- Destaques -->
-                <div class="widget widget-destaque" role="complementary">
-                    <h3><i class="fas fa-star" aria-hidden="true"></i> Destaques</h3>
-                    <div class="item-destaque">
-                        <span class="numero">1</span>
-                        <div class="info">
-                            <div class="titulo"><a href="#">Seminário sobre inclusão em Betim</a></div>
-                            <div class="meta">9 jul 2026</div>
-                        </div>
-                    </div>
-                    <div class="item-destaque">
-                        <span class="numero">2</span>
-                        <div class="info">
-                            <div class="titulo"><a href="#">22ª Parada do Orgulho LGBTQIA+</a></div>
-                            <div class="meta">26 jul 2026</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CALL TO ACTION: ARTISTAS VOLUNTÁRIOS -->
-                <div class="widget" role="complementary">
-                    <h3><i class="fas fa-hand-paper" aria-hidden="true"></i> Artistas Voluntários</h3>
-                    <p style="font-size:0.9rem;color:#4a3a4a;">Quer se apresentar na Parada? Inscreva-se como artista voluntário!</p>
-                    <a href="https://paradabetim.com.br/inscricao" class="btn-inscricao" target="_blank" rel="noopener">
-                        Inscreva-se aqui <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                </div>
-
-            </aside>
 
         </div>
 
@@ -1569,37 +1469,31 @@
                 document.body.style.overflow = '';
             }
 
-            // Evento para cada "Leia mais"
             document.querySelectorAll('.leia-mais').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     const card = this.closest('.noticia-card');
                     const titulo = card.dataset.titulo || card.querySelector('h3').textContent;
-                    const data = card.dataset.data || card.querySelector('.data').textContent;
+                    const data = card.dataset.data || '';
                     const fullTextDiv = card.querySelector('.full-text');
                     const conteudoHTML = fullTextDiv.innerHTML;
                     abrirModal(titulo, data, conteudoHTML);
                 });
             });
 
-            // Fechar com o botão
             closeBtn.addEventListener('click', fecharModal);
 
-            // Fechar com ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && modal.classList.contains('open')) {
                     fecharModal();
                 }
             });
 
-            // Fechar ao clicar no overlay (fundo)
             modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     fecharModal();
                 }
             });
-
-            // Fechar ao perder foco (opcional) - não vamos usar para não atrapalhar
         })();
     </script>
 </body>
