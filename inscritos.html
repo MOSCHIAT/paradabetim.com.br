@@ -4,17 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Artistas • Login</title>
-
-  <!-- Firebase SDKs (modular) -->
-  <script type="importmap">
-    {
-      "imports": {
-        "firebase/app": "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js",
-        "firebase/database": "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
-      }
-    }
-  </script>
-
   <style>
     * {
       margin: 0;
@@ -621,8 +610,8 @@
     <div class="login-box">
       <h1>🎤</h1>
       <div class="sub">acesso restrito</div>
-      <input type="text" id="loginUser" placeholder="Usuário" value="admin" />
-      <input type="password" id="loginPass" placeholder="Senha" value="parada2026" />
+      <input type="text" id="loginUser" placeholder="Usuário" />
+      <input type="password" id="loginPass" placeholder="Senha" />
       <button class="login-btn" id="loginBtn">Entrar</button>
       <div id="loginError" class="login-error"></div>
     </div>
@@ -664,36 +653,9 @@
   <!-- Toast -->
   <div class="toast" id="toast">✅ Informações copiadas!</div>
 
-  <script type="module">
+  <script>
     // ================================================================
-    // 1. FIREBASE CONFIG — SUBSTITUA PELOS SEUS DADOS
-    // ================================================================
-    import { initializeApp } from 'firebase/app';
-    import { getDatabase, ref, push, serverTimestamp } from 'firebase/database';
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyC7vxLkPz7v7xLkPz7v7xLkPz7v7xLkPz7", // ← SUBSTITUA
-      authDomain: "seu-projeto.firebaseapp.com",          // ← SUBSTITUA
-      databaseURL: "https://seu-projeto-default-rtdb.firebaseio.com", // ← SUBSTITUA
-      projectId: "seu-projeto",                           // ← SUBSTITUA
-      storageBucket: "seu-projeto.appspot.com",           // ← SUBSTITUA
-      messagingSenderId: "123456789012",                  // ← SUBSTITUA
-      appId: "1:123456789012:web:abcdef123456"            // ← SUBSTITUA
-    };
-
-    let db = null;
-    let firebaseReady = false;
-    try {
-      const app = initializeApp(firebaseConfig);
-      db = getDatabase(app);
-      firebaseReady = true;
-      console.log('✅ Firebase conectado.');
-    } catch (e) {
-      console.warn('⚠️ Firebase não configurado — os acessos não serão registrados.', e);
-    }
-
-    // ================================================================
-    // 2. DADOS DOS ARTISTAS
+    // 1. DADOS DOS ARTISTAS (mesmo array do original)
     // ================================================================
     const artists = [{
       id: 1,
@@ -897,7 +859,7 @@
     }];
 
     // ================================================================
-    // 3. LOGIN + FIREBASE ALERT
+    // 2. LOGIN (sem Firebase)
     // ================================================================
     const loginOverlay = document.getElementById('loginOverlay');
     const loginBtn = document.getElementById('loginBtn');
@@ -909,28 +871,11 @@
     const VALID_USER = 'admin';
     const VALID_PASS = 'parada2026';
 
-    async function registerLoginToFirebase(username) {
-      if (!firebaseReady || !db) return;
-      try {
-        const logRef = ref(db, 'acessos');
-        await push(logRef, {
-          usuario: username,
-          timestamp: serverTimestamp(),
-          userAgent: navigator.userAgent,
-          ip: '(não disponível no cliente)'
-        });
-        console.log('✅ Login registrado no Firebase.');
-      } catch (err) {
-        console.error('❌ Erro ao registrar login:', err);
-      }
-    }
-
     function doLogin() {
       const user = loginUser.value.trim();
       const pass = loginPass.value.trim();
       if (user === VALID_USER && pass === VALID_PASS) {
         loginError.textContent = '';
-        registerLoginToFirebase(user);
         loginOverlay.classList.add('hidden');
         appContainer.style.display = 'block';
         if (!window._carouselInited) {
@@ -950,10 +895,11 @@
         doLogin();
       }
     });
-    loginPass.focus();
+    // Foco no campo de usuário ao carregar
+    loginUser.focus();
 
     // ================================================================
-    // 4. CARROSSEL
+    // 3. CARROSSEL
     // ================================================================
     let currentIndex = 0;
     const total = artists.length;
@@ -961,11 +907,9 @@
     const dotsContainer = document.getElementById('dotsContainer');
     const counter = document.getElementById('counter');
 
-    // Função auxiliar para criar link do Instagram
     function getInstagramLink(value) {
       if (!value) return '';
-      if (value.startsWith('http')) return value; // já é URL
-      // remove @ se tiver
+      if (value.startsWith('http')) return value;
       const clean = value.replace(/^@/, '');
       if (clean.trim() === '') return '';
       return `https://instagram.com/${clean}`;
@@ -1003,7 +947,6 @@
         let gridHTML = '<div class="card-grid">';
         fields.forEach(f => {
           let value = artist[f.key] || '';
-          // Tratamento especial para Instagram: transformar em link
           if (f.key === 'instagram' && value) {
             const link = getInstagramLink(value);
             if (link) {
@@ -1195,7 +1138,6 @@
         if (e.key === 'ArrowRight') next();
       });
 
-      // Copy
       track.addEventListener('click', (e) => {
         const btn = e.target.closest('.copy-btn');
         if (!btn) return;
@@ -1271,7 +1213,7 @@
     }
 
     // ================================================================
-    // 5. MODAL DE E-MAILS
+    // 4. MODAL DE E-MAILS
     // ================================================================
     const modal = document.getElementById('emailModal');
     const emailList = document.getElementById('emailList');
@@ -1281,9 +1223,8 @@
     const copyAllBtn = document.getElementById('copyAllEmails');
 
     function openEmailModal() {
-      // Preencher lista
       emailList.innerHTML = '';
-      artists.forEach((artist, idx) => {
+      artists.forEach((artist) => {
         if (artist.email && artist.email.trim() !== '') {
           const li = document.createElement('li');
           const span = document.createElement('span');
@@ -1332,14 +1273,6 @@
         fallbackCopy(text);
       }
     });
-
-    // ================================================================
-    // 6. Inicialização
-    // ================================================================
-    // Se quiser iniciar já logado (descomente para testes):
-    // loginOverlay.classList.add('hidden');
-    // appContainer.style.display = 'block';
-    // initCarousel();
   </script>
 </body>
 </html>
