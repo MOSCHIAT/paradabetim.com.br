@@ -1415,7 +1415,7 @@
     <!-- /site-wrapper -->
 
     <!-- ============================================================
-    THREE.JS para o Modelo 3D (estático, apenas de frente)
+    THREE.JS para o Modelo 3D (estático, de frente)
     ============================================================ -->
     <script type="importmap">
         {
@@ -1467,26 +1467,27 @@
         const loader = new OBJLoader();
         const objUrl = 'https://raw.githubusercontent.com/MOSCHIAT/paradabetim.com.br/main/Catmask.obj';
 
-        let model = null;
-
         loader.load(
             objUrl,
             (object) => {
-                model = object;
-
-                // Calcular a bounding box do modelo
+                // Centralizar o modelo
                 const box = new THREE.Box3().setFromObject(object);
                 const center = new THREE.Vector3();
                 box.getCenter(center);
-
-                // Reposicionar o modelo para que o centro fique na origem
                 object.position.sub(center);
 
-                // Calcular o tamanho do modelo para ajustar a câmera
+                // Forçar a orientação frontal
+                // Zera qualquer rotação para garantir que a máscara fique de frente
+                object.rotation.set(0, 0, 0);
+                // Se mesmo assim o modelo estiver de lado, você pode descomentar a linha abaixo
+                // e ajustar o ângulo (ex.: Math.PI/2, Math.PI, etc.)
+                // object.rotation.y = Math.PI; // vira 180° se necessário
+
+                // Ajustar a câmera com base no tamanho do modelo
                 const size = new THREE.Vector3();
                 box.getSize(size);
                 const maxDim = Math.max(size.x, size.y, size.z);
-                const distance = maxDim * 1.8; // fator de zoom
+                const distance = maxDim * 1.8;
 
                 camera.position.set(0, 0, distance);
                 camera.lookAt(0, 0, 0);
@@ -1494,10 +1495,9 @@
                 // Adicionar à cena
                 scene.add(object);
 
-                // Animação (sem rotação - apenas renderização estática)
+                // Loop de renderização (sem rotação)
                 function animate() {
                     requestAnimationFrame(animate);
-                    // Removida a rotação automática → modelo fica parado, de frente
                     renderer.render(scene, camera);
                 }
                 animate();
