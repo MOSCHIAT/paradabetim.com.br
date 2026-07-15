@@ -522,6 +522,209 @@
       margin: 0.5rem auto 1.5rem;
     }
 
+    /* ===== MODAL DE TERMOS ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 32px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem 2rem 1.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      animation: modalFade 0.3s ease;
+    }
+
+    @keyframes modalFade {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-box .modal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      background: rgba(0, 0, 0, 0.04);
+      border: none;
+      font-size: 1.8rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 12px;
+      cursor: pointer;
+      color: #1a1a2e;
+      transition: background 0.2s;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-box .modal-close:hover {
+      background: rgba(232, 67, 147, 0.08);
+      color: #e84393;
+    }
+
+    .modal-box .modal-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: #1a1a2e;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .modal-box .modal-title i {
+      color: #e84393;
+    }
+
+    .modal-box .modal-body {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #1a1a2e;
+      text-align: left;
+    }
+
+    .modal-box .modal-body p {
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-box .modal-body ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 0.6rem 0 0.8rem;
+    }
+
+    .modal-box .modal-body ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-box .modal-body ul li i {
+      color: #e84393;
+      width: 1.2rem;
+      margin-right: 0.2rem;
+    }
+
+    .modal-box .termos-content {
+      margin: 1rem 0 1.2rem;
+      padding: 1rem 1.2rem;
+      background: rgba(232, 67, 147, 0.03);
+      border-radius: 16px;
+      border: 1px solid rgba(232, 67, 147, 0.08);
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    .modal-box .termos-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .modal-box .termos-actions .btn-group {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .modal-box .btn-termo-recusar {
+      padding: 0.7rem 1.8rem;
+      background: rgba(0, 0, 0, 0.06);
+      color: #4a3a4a;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .modal-box .btn-termo-recusar:hover {
+      background: rgba(0, 0, 0, 0.10);
+      transform: translateY(-2px);
+    }
+
+    .modal-box .btn-termo-aceitar {
+      padding: 0.7rem 2rem;
+      background: #e84393;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 4px 12px rgba(232, 67, 147, 0.2);
+    }
+
+    .modal-box .btn-termo-aceitar:hover {
+      background: #c2185b;
+      transform: translateY(-2px);
+    }
+
+    .modal-box .btn-termo-aceitar:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .modal-box .termos-checkbox-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      text-align: left;
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-box .termos-checkbox-wrapper input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 0.2rem;
+      accent-color: #e84393;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .modal-box .termos-checkbox-wrapper label {
+      font-size: 0.85rem;
+      color: #3a2a3a;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .modal-box .termos-checkbox-wrapper label a {
+      color: #e84393;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
     /* Rodapé novo */
     .portal-footer {
       border-top: 1px solid #e9ecef;
@@ -877,7 +1080,7 @@
             <div class="custom-check">
               <input type="checkbox" id="termos-artista" required aria-required="true" data-firestore="termos" />
               <label for="termos-artista">
-                Concordo com os <a href="/termos" target="_blank" class="text-secondary hover:underline">termos de participação</a> e autorizo o uso da minha imagem para fins de divulgação do evento. <span class="required">*</span>
+                Concordo com os <a href="#" id="abrirTermosLinkArtista" class="text-secondary hover:underline">termos de participação</a> e autorizo o uso da minha imagem para fins de divulgação do evento. <span class="required">*</span>
               </label>
             </div>
             <div class="error-message" id="err-termos-artista"><i class="fas fa-exclamation-circle"></i> Você deve aceitar os termos.</div>
@@ -994,7 +1197,7 @@
             <div class="custom-check">
               <input type="checkbox" id="termos-vol" required aria-required="true" data-firestore="termos" />
               <label for="termos-vol">
-                Concordo com os <a href="/termos" target="_blank" class="text-secondary hover:underline">termos de participação</a> e autorizo o uso da minha imagem para fins de divulgação do evento. <span class="required">*</span>
+                Concordo com os <a href="#" id="abrirTermosLinkVol" class="text-secondary hover:underline">termos de participação</a> e autorizo o uso da minha imagem para fins de divulgação do evento. <span class="required">*</span>
               </label>
             </div>
             <div class="error-message" id="err-termos-vol"><i class="fas fa-exclamation-circle"></i> Você deve aceitar os termos.</div>
@@ -1093,6 +1296,55 @@
 
   </div>
 
+  <!-- ===== MODAL DE TERMOS ===== -->
+  <div class="modal-overlay" id="modalTermos" role="dialog" aria-modal="true" aria-labelledby="termosTitulo">
+    <div class="modal-box">
+      <button class="modal-close" id="modalTermosClose" aria-label="Fechar termos">&times;</button>
+      <h2 class="modal-title" id="termosTitulo">
+        <i class="fas fa-file-signature" aria-hidden="true"></i> Termo de Uso · LGPD
+      </h2>
+
+      <div class="termos-content">
+        <p><strong>📸 Ao enviar sua inscrição, você concorda com os seguintes termos:</strong></p>
+
+        <p><strong>1. Autorização de uso de imagem, voz e nome</strong><br>
+        Você autoriza a <strong>22ª Parada do Orgulho LGBTQIAPN+ de Betim</strong> e sua comissão organizadora a utilizar, divulgar e publicar sua imagem, voz e nome em quaisquer meios de comunicação (redes sociais, sites, materiais impressos, vídeos, transmissões ao vivo, etc.), sem qualquer ônus ou restrição de tempo, para fins de divulgação do evento e das atividades relacionadas.</p>
+
+        <p><strong>2. Tratamento de dados pessoais (LGPD)</strong><br>
+        Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), seus dados pessoais (nome, e-mail, telefone, cidade, etc.) serão coletados e tratados exclusivamente para as finalidades de:</p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Cadastro e organização da sua participação no evento.</li>
+          <li><i class="fas fa-check-circle"></i> Comunicação sobre informações relevantes da Parada.</li>
+          <li><i class="fas fa-check-circle"></i> Divulgação de atividades e materiais institucionais.</li>
+        </ul>
+
+        <p><strong>3. Direitos do titular</strong><br>
+        Você poderá, a qualquer momento, solicitar a remoção de sua imagem e o cancelamento do tratamento de seus dados, enviando um e-mail para <strong>paradabetim@gmail.com</strong>. Garantimos que seus dados serão armazenados com segurança e não serão compartilhados com terceiros sem sua autorização expressa.</p>
+
+        <p><strong>4. Consentimento</strong><br>
+        Ao clicar em <strong>"Aceito e Enviar"</strong>, você declara que leu, compreendeu e concorda integralmente com todos os termos acima, autorizando o uso de sua imagem, voz, nome e o tratamento de seus dados pessoais conforme descrito.</p>
+      </div>
+
+      <div class="termos-actions">
+        <div class="termos-checkbox-wrapper">
+          <input type="checkbox" id="termosCheckbox" />
+          <label for="termosCheckbox">
+            Li e concordo com os <strong>Termos de Uso</strong> e com a <strong>Autorização de imagem e dados pessoais</strong>.
+          </label>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-termo-recusar" id="btnTermoRecusar">
+            <i class="fas fa-times" aria-hidden="true"></i> Recusar
+          </button>
+          <button class="btn-termo-aceitar" id="btnTermoAceitar" disabled>
+            <i class="fas fa-check" aria-hidden="true"></i> Aceito e Enviar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== TOAST ===== -->
   <div id="global-toast" role="alert" aria-live="polite">
     <i class="fas fa-info-circle" aria-hidden="true"></i>
@@ -1142,13 +1394,23 @@
       const toastMessage = document.getElementById('toast-message');
       const novaInscricaoBtn = document.getElementById('novaInscricaoBtn');
 
+      // Modal elementos
+      const modalTermos = document.getElementById('modalTermos');
+      const modalTermosClose = document.getElementById('modalTermosClose');
+      const btnTermoAceitar = document.getElementById('btnTermoAceitar');
+      const btnTermoRecusar = document.getElementById('btnTermoRecusar');
+      const termosCheckbox = document.getElementById('termosCheckbox');
+
       const tabBtns = document.querySelectorAll('.tab-btn');
       const panels = {
         artista: document.getElementById('panel-artista'),
         voluntario: document.getElementById('panel-voluntario')
       };
       let currentRole = 'artista';
+      let aguardandoEnvio = false;
+      let dadosParaEnviar = null; // Armazena os dados do formulário para envio após aceite
 
+      // ===== FUNÇÕES AUXILIARES =====
       function showToast(message, type = 'error') {
         const icon = toast.querySelector('i');
         toast.className = 'show';
@@ -1236,15 +1498,85 @@
         return digits.length >= 10 && digits.length <= 11;
       }
 
+      // ===== ABRIR MODAL DE TERMOS =====
+      function abrirModalTermos() {
+        modalTermos.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        termosCheckbox.checked = false;
+        btnTermoAceitar.disabled = true;
+        btnTermoAceitar.focus();
+        aguardandoEnvio = false;
+      }
+
+      function fecharModalTermos() {
+        modalTermos.classList.remove('open');
+        document.body.style.overflow = '';
+        aguardandoEnvio = false;
+      }
+
+      // Checkbox habilita botão
+      termosCheckbox.addEventListener('change', function() {
+        btnTermoAceitar.disabled = !this.checked;
+        if (this.checked) {
+          btnTermoAceitar.focus();
+        }
+      });
+
+      // Recusar
+      btnTermoRecusar.addEventListener('click', function() {
+        fecharModalTermos();
+        showToast('Envio cancelado. Você pode editar sua inscrição.', 'info');
+        // Reabilitar botões de submit
+        document.querySelectorAll('button[type="submit"]').forEach(b => {
+          b.disabled = false;
+          b.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição';
+        });
+      });
+
+      // Fechar com X
+      modalTermosClose.addEventListener('click', function() {
+        fecharModalTermos();
+        showToast('Envio cancelado.', 'info');
+        document.querySelectorAll('button[type="submit"]').forEach(b => {
+          b.disabled = false;
+          b.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição';
+        });
+      });
+
+      // Fechar ao clicar fora
+      modalTermos.addEventListener('click', function(e) {
+        if (e.target === modalTermos) {
+          fecharModalTermos();
+          showToast('Envio cancelado.', 'info');
+          document.querySelectorAll('button[type="submit"]').forEach(b => {
+            b.disabled = false;
+            b.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição';
+          });
+        }
+      });
+
+      // ESC fecha
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modalTermos.classList.contains('open')) {
+          fecharModalTermos();
+          showToast('Envio cancelado.', 'info');
+          document.querySelectorAll('button[type="submit"]').forEach(b => {
+            b.disabled = false;
+            b.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição';
+          });
+        }
+      });
+
+      // ===== SUBMIT =====
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
+        // Validar campos
         document.querySelectorAll('.error-message').forEach(el => el.classList.remove('visible'));
         document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
 
         let isValid = true;
         const activePanel = panels[currentRole];
-        const submitBtn = activePanel.querySelector('button[type="submit"]');
 
         function validateField(id, errorId, condition) {
           const field = document.getElementById(id);
@@ -1313,6 +1645,7 @@
           return;
         }
 
+        // --- Coletar dados do formulário ---
         const dados = {
           tipo: currentRole,
           dataHora: serverTimestamp()
@@ -1321,7 +1654,8 @@
         activePanel.querySelectorAll('[data-firestore]').forEach(el => {
           const key = el.dataset.firestore;
           if (el.type === 'checkbox') {
-            if (el.id && el.id.startsWith('termos')) {
+            if (el.id && (el.id === 'termos-artista' || el.id === 'termos-vol')) {
+              // Já validamos, mas não armazenamos o termo como array
               dados[key] = el.checked;
             } else {
               if (!dados[key]) dados[key] = [];
@@ -1338,26 +1672,60 @@
           }
         });
 
-        submitBtn.disabled = true;
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Enviando...';
+        // Guardar para envio posterior
+        dadosParaEnviar = dados;
+
+        // Desabilitar botões de submit enquanto o modal está aberto
+        document.querySelectorAll('button[type="submit"]').forEach(b => {
+          b.disabled = true;
+          b.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Aguardando...';
+        });
+
+        // Abrir modal de termos
+        abrirModalTermos();
+      });
+
+      // ===== ACEITAR TERMOS E ENVIAR =====
+      btnTermoAceitar.addEventListener('click', async function() {
+        if (!termosCheckbox.checked) return;
+        if (aguardandoEnvio) return;
+        aguardandoEnvio = true;
+        this.disabled = true;
+
+        // Fechar modal
+        fecharModalTermos();
+
+        // Enviar dados
+        const submitBtn = document.querySelector(`#panel-${currentRole} button[type="submit"]`);
+        if (submitBtn) {
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Enviando...';
+        }
 
         try {
-          await addDoc(collection(db, "inscricoes"), dados);
+          await addDoc(collection(db, "inscricoes"), dadosParaEnviar);
           form.style.display = 'none';
           successScreen.classList.add('active');
           progressFill.style.width = '100%';
           progressLabel.textContent = '100%';
           progressBar.setAttribute('aria-valuenow', '100');
           showToast('Inscrição enviada com sucesso! 🎉', 'success');
+          // Resetar estado
+          document.querySelectorAll('button[type="submit"]').forEach(b => {
+            b.disabled = false;
+            b.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição';
+          });
         } catch (erro) {
           console.error('Erro no envio:', erro);
           showToast('Erro ao salvar sua inscrição: ' + erro.message, 'error');
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
+          document.querySelectorAll('button[type="submit"]').forEach(b => {
+            b.disabled = false;
+            b.innerHTML = '<i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar inscrição';
+          });
+          aguardandoEnvio = false;
         }
       });
 
+      // ===== NOVA INSCRIÇÃO =====
       novaInscricaoBtn.addEventListener('click', function() {
         form.reset();
         document.querySelectorAll('.error-message').forEach(el => el.classList.remove('visible'));
@@ -1373,8 +1741,11 @@
         });
         switchTab('artista');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        dadosParaEnviar = null;
+        aguardandoEnvio = false;
       });
 
+      // ===== MÁSCARA DE TELEFONE =====
       document.querySelectorAll('input[type="tel"]').forEach(input => {
         input.addEventListener('input', function() {
           let val = this.value.replace(/\D/g, '');
@@ -1393,6 +1764,18 @@
         });
       });
 
+      // ===== ABRIR MODAL VIA LINK "termos de participação" =====
+      function abrirTermosLink(e) {
+        e.preventDefault();
+        // Simula a abertura do modal com um estado "somente leitura" – na prática, abre o mesmo modal.
+        // Mas para não confundir, vamos apenas abrir o modal normalmente.
+        abrirModalTermos();
+      }
+
+      document.getElementById('abrirTermosLinkArtista').addEventListener('click', abrirTermosLink);
+      document.getElementById('abrirTermosLinkVol').addEventListener('click', abrirTermosLink);
+
+      // ===== INICIALIZAÇÃO =====
       switchTab('artista');
       setTimeout(updateProgress, 200);
 
