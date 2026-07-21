@@ -334,10 +334,11 @@
     import { getAnalytics } from "firebase/analytics";
     import { getDatabase, ref, push } from "firebase/database";
 
-    // ----- SUA CONFIGURAÇÃO (fornecida por você) -----
+    // ----- SUA CONFIGURAÇÃO (com databaseURL adicionada) -----
     const firebaseConfig = {
       apiKey: "AIzaSyAVz2GwPeQPzBi2nFA1IUsm56A1tBTd0DA",
       authDomain: "paradabetim-3c3e8.firebaseapp.com",
+      databaseURL: "https://paradabetim-3c3e8-default-rtdb.firebaseio.com", // <-- ADICIONADO
       projectId: "paradabetim-3c3e8",
       storageBucket: "paradabetim-3c3e8.firebasestorage.app",
       messagingSenderId: "567345555341",
@@ -350,7 +351,9 @@
     const analytics = getAnalytics(app);
     const database = getDatabase(app);
 
-    // ----- EXPÕE A FUNÇÃO DE ENVIO PARA O ESCOPO GLOBAL (para o onclick do form) -----
+    console.log("🔥 Firebase inicializado com sucesso!");
+
+    // ----- EXPÕE A FUNÇÃO DE ENVIO PARA O ESCOPO GLOBAL -----
     window.handleSubmit = function(event) {
       event.preventDefault();
 
@@ -374,6 +377,8 @@
         dataConfirmacao: new Date().toLocaleString('pt-BR')
       };
 
+      console.log("📦 Dados a serem salvos:", dados);
+
       // Salva no Firebase Realtime Database
       const checkinsRef = ref(database, 'checkins');
       push(checkinsRef, dados)
@@ -386,7 +391,7 @@
         })
         .catch((error) => {
           console.error('❌ Erro ao salvar:', error);
-          alert('Ocorreu um erro ao confirmar sua presença. Por favor, tente novamente.');
+          alert('Ocorreu um erro ao confirmar sua presença. Por favor, tente novamente. Detalhes: ' + error.message);
         });
 
       return false;
